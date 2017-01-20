@@ -12,12 +12,18 @@ __status__ = "Testing"
 from astral import SUN_SETTING, SUN_RISING, Astral, GoogleGeocoder
 import datetime, sys
 
+if len(sys.argv) > 1:
+    city = sys.argv[1]
+else:
+    print(u'\u26a0 Looks like you forgot to specify a city.')
+    quit()
+
 city = sys.argv[1]
 location = Astral(GoogleGeocoder)[city]
 
 print('---------------------------------')
 timezone = location.timezone
-print (u'\u2615 %s %s %.02f,%.02f' % (location.name, timezone, location.latitude, location.longitude))
+print (u'\u2609 %s %s %.02f,%.02f' % (location.name, timezone, location.latitude, location.longitude))
 print('---------------------------------')
 sunrise = location.sunrise(date=None, local=True)
 print (u'\u2600 \u2197    %s' % sunrise)
