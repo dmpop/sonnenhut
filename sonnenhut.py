@@ -16,10 +16,8 @@ city = sys.argv[1]
 location = Astral(GoogleGeocoder)[city]
 
 print('---------------------------------')
-print (location.name + u' \u2615')
 timezone = location.timezone
-print('Timezone: %s' % timezone)
-print('Coordinates: %.02f,%.02f' % (location.latitude, location.longitude))
+print (u'\u2615 %s %s %.02f,%.02f' % (location.name, timezone, location.latitude, location.longitude))
 print('---------------------------------')
 sunrise = location.sunrise(date=None, local=True)
 print (u'\u2600 \u2197    %s' % sunrise)
