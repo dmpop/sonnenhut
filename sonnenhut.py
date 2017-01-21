@@ -41,6 +41,8 @@ print (u"\u263C \u2198    {hh:02d}:{mm:02d}:{ss:02d} \u231a {duration}    ".form
 print('---------------------------------')
 
 forecast = forecastio.load_forecast(ds_api_key, location.latitude, location.longitude)
-byHour = forecast.hourly()
-print (u'\u2601 %s' % byHour.summary)
+hourly = forecast.hourly()
+currently = forecast.currently()
+print (u'\u2601 %s' % hourly.summary)
+print (u'\u26C5 %s \u2614 %s' % (currently.temperature, currently.precipProbability))
 print('---------------------------------')
