@@ -1,6 +1,6 @@
 # Sonnenhut
 
-A crude Python script for photographers. Displays basic information, including current weather conditions and golden hour for a specified location.
+A crude Python script for photographers. Displays basic information such as current weather conditions and golden hour for a specified location.
 
 ## Installation
 
