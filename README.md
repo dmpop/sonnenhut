@@ -21,10 +21,18 @@ The script provides the following information:
 3. Install the *python-forecast.io* module: `sudo pip install python-forecast.io`
 4. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
+Alternatively, run the following command:
+
+    sudo zypper in python3 git; sudo pip install astral; sudo pip install python-forecast.io; git clone https://github.com/dmpop/sonnenhut.git;
+
 ## Usage
 
 1. Switch to the *sonnenhut* directory
 2. Run the `./sonnenhut.py fürth` command (replace *fürth* with the desired city)
+
+For quick access, create an alias in the *~/.bashrc* file (replace *fürth* with the desired city):
+
+    alias sonnenhut='/home/dmpop/GitHub/sonnenhut/sonnenhut.py fürth'
 
 ## Contributing
 
