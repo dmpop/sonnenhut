@@ -17,8 +17,8 @@ The script provides the following information:
 ### openSUSE
 
 1. Install Python 3 and Git: `sudo zypper in python3 git`
-2. Install the Astral module: `sudo pip install astral`
-3. Install the python-forecast.io module: `sudo pip install python-forecast.io`
+2. Install the *Astral* module: `sudo pip install astral`
+3. Install the *python-forecast.io* module: `sudo pip install python-forecast.io`
 4. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
 ## Usage
