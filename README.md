@@ -1,13 +1,14 @@
 # Sonnenhut
 
-A crude Python script for displaying golden hour and other info for a specified location.
+A crude Python script for photographers. Displays basic information, including current weather conditions and golden hour for a specified location.
 
 ## Installation
 
 ### openSUSE
 
  - Install Python 3 and Git: `sudo zypper in python3 git`
- - Install the Astral module: `pip install astral`
+ - Install the Astral module: `sudo pip install astral`
+ - Install the python-forecast.io module: `sudo pip install python-forecast.io`
  - Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
 ## Usage
