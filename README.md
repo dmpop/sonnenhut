@@ -2,6 +2,8 @@
 
 A crude Python script for photographers. Displays basic information such as current weather conditions and golden hour for a specified location.
 
+<img src="sonnenhut.png" alt="Sonnenhut">
+
 ## Installation
 
 ### openSUSE
