@@ -4,19 +4,27 @@ A crude Python script for photographers. Displays basic information such as curr
 
 <img src="sonnenhut.png" alt="Sonnenhut">
 
+The script provides the following information:
+
+ - Sunrise and sunset
+ - Golden hour start and duration
+ - Brief weather summary
+ - Current temperature
+ - Precipitation probability
+
 ## Installation
 
 ### openSUSE
 
- - Install Python 3 and Git: `sudo zypper in python3 git`
- - Install the Astral module: `sudo pip install astral`
- - Install the python-forecast.io module: `sudo pip install python-forecast.io`
- - Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
+1. Install Python 3 and Git: `sudo zypper in python3 git`
+2. Install the Astral module: `sudo pip install astral`
+3. Install the python-forecast.io module: `sudo pip install python-forecast.io`
+4. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
 ## Usage
 
- - Switch to the *sonnenhut* directory
- - Run the `./sonnenhut.py fürth` command (replace *fürth* with the desired city)
+1. Switch to the *sonnenhut* directory
+2. Run the `./sonnenhut.py fürth` command (replace *fürth* with the desired city)
 
 ## Contributing
 
