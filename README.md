@@ -34,7 +34,7 @@ Alternatively, run the following command:
 
 For quick access, create an alias in the *~/.bashrc* file (replace *fürth* with the desired city):
 
-    alias sonnenhut='/home/dmpop/GitHub/sonnenhut/sonnenhut.py fürth'
+    alias sonnenhut='/path/to/sonnenhut.py fürth'
 
 ## Contributing
 
