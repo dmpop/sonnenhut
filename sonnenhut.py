@@ -10,7 +10,7 @@ __email__ = "dpopov@suse.com"
 __status__ = "Testing"
 
 from astral import SUN_SETTING, SUN_RISING, Astral, GoogleGeocoder
-import datetime, sys, forecastio
+import datetime, sys, os.path, forecastio
 
 if len(sys.argv) > 1:
     city = sys.argv[1]
@@ -46,3 +46,10 @@ currently = forecast.currently()
 print (u'\u2601 %s' % hourly.summary)
 print (u'\u26C5 %s \u2614 %s' % (currently.temperature, currently.precipProbability))
 print('---------------------------------')
+
+if os.path.isfile('sonnenhut.txt'):
+    tnote = open('sonnenhut.txt','r')
+    print (tnote.read())
+    tnote.close()
+else:
+    open(x, 'sonnenhut.txt').close()
