@@ -12,6 +12,8 @@ The script provides the following information:
  - Current temperature
  - Precipitation probability
 
+The script also shows notes from the accompanying *sonnenhut.txt* file (created automatically during the fist run).
+
 ## Installation
 
 ### openSUSE
