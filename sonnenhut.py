@@ -52,4 +52,4 @@ if os.path.isfile('sonnenhut.txt'):
     print (tnote.read())
     tnote.close()
 else:
-    open(x, 'sonnenhut.txt').close()
+    open('sonnenhut.txt', 'a').close()
