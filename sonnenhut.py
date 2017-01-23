@@ -19,6 +19,7 @@ else:
     print(u'\u26a0 Looks like you forgot to specify a city.')
     quit()
 
+txt_path = 'sonnenhut.txt'
 city = sys.argv[1]
 
 try:
@@ -56,9 +57,9 @@ print (u'\u2601 %s' % hourly.summary)
 print (u'\u26C5 %s \u2614 %s' % (currently.temperature, currently.precipProbability))
 print('---------------------------------')
 
-if os.path.isfile('sonnenhut.txt'):
-    tnote = open('sonnenhut.txt','r')
-    print (tnote.read())
-    tnote.close()
+if os.path.isfile(txt_path):
+    txt_note = open(txt_path,'r')
+    print (txt_note.read())
+    txt_note.close()
 else:
-    open('sonnenhut.txt', 'a').close()
+    open(txt_path, 'a').close()
