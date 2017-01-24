@@ -6,11 +6,9 @@ A crude Python script for photographers. Displays basic information such as curr
 
 The script provides the following information:
 
- - Sunrise and sunset
  - Golden hour start and duration
  - Brief weather summary
- - Current temperature
- - Precipitation probability
+ - Current temperature, wind speed, and humidity
 
 The script also shows notes from the accompanying *sonnenhut.txt* file (created automatically during the fist run).
 
@@ -20,12 +18,12 @@ The script also shows notes from the accompanying *sonnenhut.txt* file (created 
 
 1. Install Python 3 and Git: `sudo zypper in python3 git`
 2. Install the *Astral* module: `sudo pip install astral`
-3. Install the *python-forecast.io* module: `sudo pip install python-forecast.io`
+3. Install the *pyowm* module: `sudo pip install pyown`
 4. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
 Alternatively, run the following command:
 
-    sudo zypper in python3 git; sudo pip install astral; sudo pip install python-forecast.io; git clone https://github.com/dmpop/sonnenhut.git;
+    sudo zypper in python3 git; sudo pip install astral; sudo pip install pyowm; git clone https://github.com/dmpop/sonnenhut.git;
 
 ## Usage
 
