@@ -19,6 +19,7 @@ else:
     print(u'\u26a0 Looks like you forgot to specify a city.')
     quit()
 
+owm_api_key = 'f2871760abe7535464065759cf85bd3c'
 txt_path = 'sonnenhut.txt'
 city = sys.argv[1]
 
@@ -27,7 +28,7 @@ try:
 except:
     sys.exit(u'\u26a0 Failed to obtain geographical coordinates of the specified city.')
 
-owm = pyowm.OWM('f2871760abe7535464065759cf85bd3c')
+owm = pyowm.OWM(owm_api_key)
 
 print('---------------------------------')
 timezone = location.timezone
