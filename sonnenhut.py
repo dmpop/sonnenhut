@@ -53,7 +53,17 @@ icon = w.get_weather_icon_name()
 wind_speed = w.get_wind()
 temp = w.get_temperature('celsius')
 humidity = w.get_humidity()
-print('%s, %s°C, %sm/s, %s%%' % (status, temp['temp'], wind_speed['speed'], humidity))
+
+forecast = owm.daily_forecast_at_coords(location.latitude, location.longitude)
+next_3_hours = pyowm.utils.timeutils.next_three_hours(date=None)
+rain = forecast.will_be_rainy_at(next_3_hours)
+snow = forecast.will_be_snowy_at(next_3_hours)
+if rain == True and snow == True:
+    precip = ('\u2614')
+else:
+    precip = ('\u2713')
+
+print(u'%s, %s°C, %sm/s, %s%% %s' % (status, temp['temp'], wind_speed['speed'], humidity, precip))
 print('---------------------------------')
 
 if os.path.isfile(txt_path):

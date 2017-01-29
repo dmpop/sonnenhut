@@ -9,6 +9,7 @@ The script provides the following information:
  - Golden hour start and duration
  - Brief weather summary
  - Current temperature, wind speed, and humidity
+ - Precipitation warning
 
 The script also shows notes from the accompanying *sonnenhut.txt* file (created automatically during the fist run).
 
