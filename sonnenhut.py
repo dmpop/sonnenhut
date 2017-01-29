@@ -54,14 +54,17 @@ wind_speed = w.get_wind()
 temp = w.get_temperature('celsius')
 humidity = w.get_humidity()
 
-forecast = owm.daily_forecast_at_coords(location.latitude, location.longitude, limit=None)
-next_3_hours = pyowm.utils.timeutils.next_three_hours(date=None)
-rain = forecast.will_be_rainy_at(next_3_hours)
-snow = forecast.will_be_snowy_at(next_3_hours)
-if rain == True and snow == True:
-    precip = ('\u2614')
-else:
-    precip = ('\u2713')
+try:
+    forecast = owm.daily_forecast_at_coords(location.latitude, location.longitude, limit=None)
+    next_3_hours = pyowm.utils.timeutils.next_three_hours(date=None)
+    rain = forecast.will_be_rainy_at(next_3_hours)
+    snow = forecast.will_be_snowy_at(next_3_hours)
+    if rain == True and snow == True:
+        precip = '\u2614'
+    else:
+        precip = '\u2713'
+except:
+    precip = '\u26a0'
 
 print(u'%s, %s°C, %sm/s, %s%% %s' % (status, temp['temp'], wind_speed['speed'], humidity, precip))
 print('---------------------------------')
