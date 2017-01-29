@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 __author__ = 'Dmitri Popov'
-__copyright__ = 'Copyleft 2016, Dmitri Popov'
+__copyright__ = 'Copyleft 2017, Dmitri Popov'
 __credits__ = ['Thomas Schraitle']
 __license__ = 'GPLv3'
 __version__ = '0.0.3'
@@ -54,7 +54,7 @@ wind_speed = w.get_wind()
 temp = w.get_temperature('celsius')
 humidity = w.get_humidity()
 
-forecast = owm.daily_forecast_at_coords(location.latitude, location.longitude)
+forecast = owm.daily_forecast_at_coords(location.latitude, location.longitude, limit=None)
 next_3_hours = pyowm.utils.timeutils.next_three_hours(date=None)
 rain = forecast.will_be_rainy_at(next_3_hours)
 snow = forecast.will_be_snowy_at(next_3_hours)
