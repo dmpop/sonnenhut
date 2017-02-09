@@ -20,8 +20,6 @@ def sonnenhut():
         city = sys.argv[1]
     else:
         return (u'\u26a0 Looks like you forgot to specify a city.')
-    #quit()
-    #city = sys.argv[1]
     txt_path = 'sonnenhut.txt'
     owm_api_key = 'f2871760abe7535464065759cf85bd3c'
     try:
