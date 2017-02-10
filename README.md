@@ -17,7 +17,7 @@ The script also shows notes from the accompanying *sonnenhut.txt* file (created 
 
 ### openSUSE
 
-1. Install Python 3 and Git: `sudo zypper in python3 git`
+1. Install Python 3, Python PIP, and Git: `sudo zypper in python3 python3-pip git`
 2. Install the *Astral* module: `sudo pip install astral`
 3. Install the *pyowm* module: `sudo pip install pyown`
 4. Install the *bottle* module: `sudo pip install bottle`
@@ -25,7 +25,7 @@ The script also shows notes from the accompanying *sonnenhut.txt* file (created 
 
 Alternatively, run the following command:
 
-    sudo zypper in python3 git; sudo pip install astral; sudo pip install
+    sudo zypper in python3 python3-pip git; sudo pip install astral; sudo pip install
     pyowm; sudo pip install bottle; git clone https://github.com/dmpop/sonnenhut.git;
 
 ## Usage
