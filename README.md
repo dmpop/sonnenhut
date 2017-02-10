@@ -20,11 +20,13 @@ The script also shows notes from the accompanying *sonnenhut.txt* file (created 
 1. Install Python 3 and Git: `sudo zypper in python3 git`
 2. Install the *Astral* module: `sudo pip install astral`
 3. Install the *pyowm* module: `sudo pip install pyown`
-4. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
+4. Install the *bottle* module: `sudo pip install bottle`
+5. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
 Alternatively, run the following command:
 
-    sudo zypper in python3 git; sudo pip install astral; sudo pip install pyowm; git clone https://github.com/dmpop/sonnenhut.git;
+    sudo zypper in python3 git; sudo pip install astral; sudo pip install
+    pyowm; sudo pip install bottle; git clone https://github.com/dmpop/sonnenhut.git;
 
 ## Usage
 
@@ -45,6 +47,7 @@ For quick access, create an alias in the *~/.bashrc* file (replace *fürth* with
 
 ## History
 
+ - 2017-02-09 Switched to Python Bottle
  - 2017-01-23 Added basic error handling
  - 2017-01-22 Added the notes feature
  - 2017-01-21 Initial release
