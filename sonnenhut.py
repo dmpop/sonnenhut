@@ -65,7 +65,6 @@ def sonnenhut():
     if os.path.isfile(txt_path):
         txt_note = open(txt_path,'r')
         txt_note_print =(txt_note.read())
-        print (txt_note_print)
         txt_note.close()
     else:
         open(txt_path, 'a').close()
