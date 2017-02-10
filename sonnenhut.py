@@ -55,7 +55,7 @@ def sonnenhut():
         next_3_hours = pyowm.utils.timeutils.next_three_hours(date=None)
         rain = forecast.will_be_rainy_at(next_3_hours)
         snow = forecast.will_be_snowy_at(next_3_hours)
-        if rain == True or snow == True:
+        if rain == True and snow == True:
             precip = '\u2614'
         else:
             precip = '\u2713'
