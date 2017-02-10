@@ -69,6 +69,6 @@ def sonnenhut():
     else:
         open(txt_path, 'a').close()
 
-    return (u'<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>%s<br /><hr />%s<br />%s<br /><hr />%s, %s°C, %sm/s, %s%% %s<br /><hr />%s' % (general_info, gh_sunrise_line, gh_sunset_line, status, temp['temp'], wind_speed['speed'], humidity, precip, txt_note_print))
+    return (u'<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>%s<br /><hr width="50%" />%s<br />%s<br /><hr width="50%" />%s, %s°C, %sm/s, %s%% %s<br /><hr width="50%" />%s' % (general_info, gh_sunrise_line, gh_sunset_line, status, temp['temp'], wind_speed['speed'], humidity, precip, txt_note_print))
 
 run(host='0.0.0.0', port=8080, reloader=True)
