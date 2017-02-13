@@ -45,13 +45,6 @@ For quick access, create an alias in the *~/.bashrc* file (replace *fürth* with
 4. Push to the branch: `git push origin new-feature`
 5. Submit a pull request
 
-## History
-
- - 2017-02-09 Switched to Python Bottle
- - 2017-01-23 Added basic error handling
- - 2017-01-22 Added the notes feature
- - 2017-01-21 Initial release
-
 ## Credits
 
 Thanks to Thomas Schraitle for help and guidance.
