@@ -19,7 +19,7 @@ The script also shows notes from the accompanying *sonnenhut.txt* file (created 
 
 1. Install Python 3, Python PIP, and Git: `sudo zypper in python3 python3-pip git`
 2. Install the *Astral* module: `sudo pip install astral`
-3. Install the *pyowm* module: `sudo pip install pyown`
+3. Install the *pyowm* module: `sudo pip install pyowm`
 4. Install the *bottle* module: `sudo pip install bottle`
 5. Clone the Git repository: `git clone https://github.com/dmpop/sonnenhut.git`
 
