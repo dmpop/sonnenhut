@@ -1,7 +1,7 @@
 Sonnenhut 1.0.1
 ===============
 
-A crude Python script for photographers. Displays basic information such
+A simple Python script for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
 
 The script provides the following information:
@@ -14,19 +14,10 @@ The script provides the following information:
 The script also shows notes from the accompanying *sonnenhut.txt* file
 (created automatically during the fist run).
 
-Quick Start
-===========
-
-To use the program without :command:`pip` and virtual environment, use the
-following command after cloning this repository::
-
-    $ PYTHONPATH=src python3 -m sonnenhut -h
-
-
 Installation
 ============
 
-To install :program:`sonnenhut`, use the following steps:
+To install Sonnenhut, use the following steps:
 
 #. Clone this repository::
 
@@ -51,13 +42,12 @@ If you need to install it from GitHub directly, use this URL::
     git+https://github.com/dmpop/sonnenhut.git@develop
 
 After the installation in your Python virtual environment, the script
-:program:`sonnenhut` is available.
+`sonnenhut` is available.
 
 Usage
 -----
 
-Run the ``./sonnenhut.py fürth`` command (replace *fürth* with the
-   desired city)
+Run the ``./sonnenhut.py fürth`` command (replace *fürth* with the desired city)
 
 For quick access, create an alias in the *~/.bashrc* file (replace
 *fürth* with the desired city):
