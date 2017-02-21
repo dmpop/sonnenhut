@@ -1,4 +1,4 @@
-Sonnenhut 1.0.0
+Sonnenhut 1.0.1
 ===============
 
 A crude Python script for photographers. Displays basic information such
