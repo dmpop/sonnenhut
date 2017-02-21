@@ -14,32 +14,49 @@ The script provides the following information:
 The script also shows notes from the accompanying *sonnenhut.txt* file
 (created automatically during the fist run).
 
+Quick Start
+===========
+
+To use the program without :command:`pip` and virtual environment, use the
+following command after cloning this repository::
+
+    $ PYTHONPATH=src python3 -m sonnenhut -h
+
+
 Installation
-------------
+============
 
-openSUSE
-~~~~~~~~
+To install :program:`sonnenhut`, use the following steps:
 
-1. Install Python 3, Python PIP, and Git:
-   ``sudo zypper in python3 python3-pip git``
-2. Install the *Astral* module: ``sudo pip install astral``
-3. Install the *pyowm* module: ``sudo pip install pyowm``
-4. Install the *bottle* module: ``sudo pip install bottle``
-5. Clone the Git repository:
-   ``git clone https://github.com/dmpop/sonnenhut.git``
+#. Clone this repository::
 
-Alternatively, run the following command:
+    $ git clone https://github.com/dmpop/sonnenhut
+    $ cd sonnenhut
 
-::
+#. Create a Python 3 environment and activate it::
 
-    sudo zypper in python3 python3-pip git; sudo pip install astral; sudo pip install
-    pyowm; sudo pip install bottle; git clone https://github.com/dmpop/sonnenhut.git;
+    $ pyvenv .env
+    $ source .env/bin/activate
+
+#. Optionally update the ``pip`` and ``setuptools`` modules::
+
+    $ pip install -U pip setuptools
+
+#. Install the package::
+
+    $ ./setup.py develop
+
+If you need to install it from GitHub directly, use this URL::
+
+    git+https://github.com/dmpop/sonnenhut.git@develop
+
+After the installation in your Python virtual environment, the script
+:program:`sonnenhut` is available.
 
 Usage
 -----
 
-1. Switch to the *sonnenhut* directory
-2. Run the ``./sonnenhut.py fürth`` command (replace *fürth* with the
+Run the ``./sonnenhut.py fürth`` command (replace *fürth* with the
    desired city)
 
 For quick access, create an alias in the *~/.bashrc* file (replace
@@ -48,15 +65,6 @@ For quick access, create an alias in the *~/.bashrc* file (replace
 ::
 
     alias sonnenhut='/path/to/sonnenhut.py fürth'
-
-Contributing
-------------
-
-1. Fork the repository
-2. Create a feature branch: ``git checkout -b new-feature``
-3. Commit your changes: ``git commit -am 'Add some feature'``
-4. Push to the branch: ``git push origin new-feature``
-5. Submit a pull request
 
 Credits
 -------
