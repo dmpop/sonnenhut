@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
+from setuptools import find_packages
 
 def requires(filename):
     """Returns a list of all pip requirements
@@ -25,6 +26,8 @@ setup(name='sonnenhut',
       author_email='dpopov@suse.de',
       url='https://github.com/dmpop/sonnenhut',
       scripts=['bin/sonnenhut'],
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
       install_requires=requires('requirements.txt'),
       classifiers=['Development Status :: 4 - Beta',
                    'Environment :: Console',
