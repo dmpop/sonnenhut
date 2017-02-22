@@ -19,12 +19,12 @@ def requires(filename):
     return modules
 
 setup(name='sonnenhut',
-      version='1.1.0',
+      version='1.1.1',
       description='A simple tool for photographers',
       author='Dmitri Popov',
       author_email='dpopov@suse.de',
       url='https://github.com/dmpop/sonnenhut',
-      scripts=['bin/sonnenhut.py'],
+      scripts=['bin/sonnenhut'],
       install_requires=requires('requirements.txt'),
       classifiers=['Development Status :: 4 - Beta',
                    'Environment :: Console',
