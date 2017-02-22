@@ -3,3 +3,5 @@
 
 -r requirements.txt
 bumpversion
+pytest
+pytest-cov
