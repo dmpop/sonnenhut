@@ -8,19 +8,9 @@ __version__ = '1.1.1'
 __maintainer__ = 'Dmitri Popov'
 __email__ = 'dpopov@suse.com'
 __URL__ = 'https://github.com/dmpop/sonnenhut'
-__status__ = 'Development'
 
-from sonnenhut import run
+from sonnenhut.server import run
 
 if __name__=='__main__':
-    if len(sys.argv) > 1:
-        city = sys.argv[1]
-    else:
-        print ('\u26a0 Looks like you forgot to specify a city.', file=sys.stderr)
-        sys.exit(10)
-    try:
-        run(host='0.0.0.0', port=8080, reloader=True)
-    except AstralError as error:
-        print('\u26a0 Failed to obtain geographical coordinates of the specified city: %s' % error,
-              file=sys.stderr)
+    run(host='0.0.0.0', port=8080, reloader=True)
 

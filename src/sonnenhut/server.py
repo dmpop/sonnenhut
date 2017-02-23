@@ -3,8 +3,8 @@ from bottle import route, run
 from sonnenhut import getlocation, initowm, goldenhour, getweather, forecast
 import datetime, os.path
 
-@route('/sonnenhut')
-def sonnenhut():
+@route('/sonnenhut/<city>')
+def sonnenhut(city):
     txt_path = 'sonnenhut.txt'
 
     location = getlocation(city)
