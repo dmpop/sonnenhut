@@ -1,4 +1,4 @@
-Sonnenhut 1.1.1
+Sonnenhut 1.2.0
 ===============
 
 .. image:: https://travis-ci.org/dmpop/sonnenhut.svg?branch=develop
