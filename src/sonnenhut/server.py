@@ -5,7 +5,7 @@ import datetime, os.path
 
 @route('/sonnenhut/<city>')
 def sonnenhut(city):
-    txt_path = 'sonnenhut.txt'
+    note_file = 'sonnenhut.txt'
 
     location = getlocation(city)
     owm = initowm()
@@ -36,10 +36,12 @@ def sonnenhut(city):
     else:
         precip = '\u2713'
 
-    if os.path.isfile(txt_path):
-        txt_note = open(txt_path,'r')
-        txt_note_print =(txt_note.read())
-        txt_note.close()
+    if os.path.isfile(note_file):
+        lst = []
+        with open(note_file,'r') as text:
+            for line in text:
+                lst.append(line)
+        note = '<br />'.join(lst)
     else:
         open(txt_path, 'a').close()
 
@@ -59,4 +61,4 @@ def sonnenhut(city):
                                                      weather['wind_speed'],
                                                      weather['humidity'],
                                                      precip,
-                                                     txt_note_print)
+                                                     note)
