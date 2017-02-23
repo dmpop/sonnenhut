@@ -1,5 +1,8 @@
-Sonnenhut 1.1.1
+Sonnenhut 1.2.0
 ===============
+
+.. image:: https://travis-ci.org/dmpop/sonnenhut.svg?branch=develop
+    :target: https://travis-ci.org/dmpop/sonnenhut
 
 A simple Python script for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
