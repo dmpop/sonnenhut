@@ -53,7 +53,6 @@ def getweather(owm, location):
     weather = owm.weather_at_coords(location.latitude, location.longitude)
     w = weather.get_weather()
     weatherdict['status'] = w.get_status()
-    weatherdict['icon'] = w.get_weather_icon_name()
     weatherdict['wind_speed'] = w.get_wind().get('speed', 'N/A')
     weatherdict['temp'] = w.get_temperature('celsius').get('temp', 'N/A')
     weatherdict['humidity'] = w.get_humidity()
