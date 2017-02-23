@@ -10,6 +10,7 @@ include LICENSE
 include README.rst
 include sonnenhut.png
 include sonnenhut.svg
+include sonnenhut.txt
 include devel_requirements.txt
 include requirements.txt
 include travis_requirements.txt
