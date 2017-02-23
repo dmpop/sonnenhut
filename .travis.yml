@@ -21,6 +21,7 @@ before_install:
 install:
   - pip install -U pip setuptools
   - pip install -r devel_requirements.txt
+  - pip install -e .
 
 script:
     # - tox -v
