@@ -1,6 +1,6 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
-from sonnenhut import getlocation, initowm, goldenhour, getweather, forecast
+from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast
 import datetime, os.path
 
 @route('/sonnenhut/<city>')
