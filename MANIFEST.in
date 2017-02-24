@@ -9,6 +9,7 @@ include CONTRIBUTING.rst
 include LICENSE
 include README.rst
 include sonnenhut.txt
+include sonnenhut.png
 include devel_requirements.txt
 include requirements.txt
 include travis_requirements.txt
