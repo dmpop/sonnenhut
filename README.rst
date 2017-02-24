@@ -8,6 +8,7 @@ A simple Python-based web app for photographers that displays basic information 
 as current weather conditions and golden hour for a specified location.
 
 .. image:: sonnenhut.png
+   :width: 375 px
 
 The app provides the following information:
 
