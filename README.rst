@@ -4,17 +4,19 @@ Sonnenhut 1.2.0
 .. image:: https://travis-ci.org/dmpop/sonnenhut.svg?branch=develop
     :target: https://travis-ci.org/dmpop/sonnenhut
 
-A simple Python script for photographers that displays basic information such
+A simple Python-based web app for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
 
-The script provides the following information:
+.. image:: sonnenhut.png
+
+The app provides the following information:
 
 -  Golden hour start and duration
 -  Brief weather summary
 -  Current temperature, wind speed, and humidity
 -  Precipitation warning
 
-The script also shows notes from the accompanying *sonnenhut.txt* file
+The app also shows notes from the accompanying *sonnenhut.txt* file
 (created automatically during the fist run).
 
 Installation
