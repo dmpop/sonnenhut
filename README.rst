@@ -22,7 +22,7 @@ Installation
 
 To install Sonnenhut, use the following steps:
 
-#. Clone this repository::
+#. Clone the project's repository::
 
     $ git clone https://github.com/dmpop/sonnenhut
     $ cd sonnenhut
@@ -40,24 +40,16 @@ To install Sonnenhut, use the following steps:
 
     $ ./setup.py develop
 
-If you need to install it from GitHub directly, use this URL::
+To install Sonnenhut directly from GitHub, use this URL::
 
     git+https://github.com/dmpop/sonnenhut.git@develop
-
-After the installation in your Python virtual environment, the script
-`sonnenhut` is available.
 
 Usage
 -----
 
-Run the ``./sonnenhut.py fürth`` command (replace *fürth* with the desired city)
-
-For quick access, create an alias in the *~/.bashrc* file (replace
-*fürth* with the desired city):
-
-::
-
-    alias sonnenhut='/path/to/sonnenhut.py fürth'
+Run the ``sonnenhut`` command and point your browser to
+http://127.0.0.1:8080/sonnenhut/<city> (replace *<city>* with the actual name of the
+desired city).
 
 Credits
 -------
