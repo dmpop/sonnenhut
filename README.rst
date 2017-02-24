@@ -8,7 +8,6 @@ A simple Python-based web app for photographers that displays basic information 
 as current weather conditions and golden hour for a specified location.
 
 .. image:: sonnenhut.png
-   :scale: 50 %
 
 The app provides the following information:
 
@@ -22,8 +21,6 @@ The app also shows notes from the accompanying *sonnenhut.txt* file
 
 Installation
 ============
-
-To install Sonnenhut, use the following steps:
 
 #. Clone the project's repository::
 
@@ -43,9 +40,9 @@ To install Sonnenhut, use the following steps:
 
     $ ./setup.py develop
 
-To install Sonnenhut directly from GitHub, use this URL::
+To install Sonnenhut directly from GitHub, run the following command::
 
-    git+https://github.com/dmpop/sonnenhut.git@develop
+    pip install git+https://github.com/dmpop/sonnenhut.git@develop
 
 Usage
 -----
