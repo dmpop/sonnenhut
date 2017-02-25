@@ -33,7 +33,7 @@ Quick Start
 
      pip install git+https://github.com/dmpop/sonnenhut.git@develop
 
-#. Run the ``sonnenhut`` command and point your browser to `<http://127.0.0.1:8080/sonnenhut/<city>>`_ (replace *<city>* with the actual name of the desired city).
+#. Run the ``sonnenhut`` command and point your browser to `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *<city>* with the actual name of the desired city).
 
 Installation
 ============
