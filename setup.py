@@ -21,7 +21,7 @@ def requires(filename):
 
 setup(name='sonnenhut',
       version='1.2.0',
-      description='A simple tool for photographers',
+      description='Simple dashboard for photographers',
       author='Dmitri Popov',
       author_email='dpopov@suse.de',
       url='https://github.com/dmpop/sonnenhut',
