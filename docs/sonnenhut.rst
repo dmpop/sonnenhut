@@ -4,21 +4,21 @@
 
 sonnenhut |version| -- Manual Page
 ==================================
-A simple tool for photographers
+Simple dashboard for photographers
 
 Synopsis
 --------
 ::
-   sonnenhut CITYNAME
+   sonnenhut
 
 Description
 -----------
-A tool to run before a photo walk
+Simple dashboard that provides useful information (golden hour, weather, precipitation warnning, etc.) for the given city
 
 Examples
 --------
 ::
-   sonnenhut tokyo
+   sonnenhut
 
 Author
 ------
