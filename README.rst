@@ -19,6 +19,22 @@ The app provides the following information:
 The app also shows notes from the accompanying *sonnenhut.txt* file
 (created automatically during the fist run).
 
+Quick Start
+===========
+
+#. Install the required packages. On openSUSE, run the ``sudo zypper in python3 python3-virtualenv python3-pip`` command.
+
+#. Create a Python 3 virtual environment nd activate it::
+
+    $ pyvenv .env
+    $ source .env/bin/activate
+
+#. Install Sonnenhut::
+
+     pip install git+https://github.com/dmpop/sonnenhut.git@develop
+
+#. Run the ``sonnenhut`` command and point your browser to `<http://127.0.0.1:8080/sonnenhut/<city>>`_ (replace *<city>* with the actual name of the desired city).
+
 Installation
 ============
 
@@ -39,10 +55,6 @@ Installation
 #. Install the package::
 
     $ ./setup.py develop
-
-To install Sonnenhut directly from GitHub, run the following command::
-
-    pip install git+https://github.com/dmpop/sonnenhut.git@develop
 
 Usage
 -----
