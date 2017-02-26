@@ -1,5 +1,6 @@
 from astral import Astral, GoogleGeocoder
 import pyowm
+import configparser
 
 def getlocation(city):
     """
@@ -13,7 +14,7 @@ def getlocation(city):
     return Astral(GoogleGeocoder)[city]
 
 
-def initowm(apikey = 'f2871760abe7535464065759cf85bd3c'):
+def initowm():
     """
     Initialize OpenWeatherMap service
 
@@ -21,7 +22,10 @@ def initowm(apikey = 'f2871760abe7535464065759cf85bd3c'):
     :return:
     :rtype:
     """
-    return pyowm.OWM(apikey)
+    config = configparser.ConfigParser()
+    config.read('sonnenhut.ini')
+    api_key = config.get('sonnenhut', 'api_key')
+    return pyowm.OWM(api_key)
 
 
 def goldenhour(location, direction):

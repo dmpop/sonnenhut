@@ -1,8 +1,10 @@
 Sonnenhut 1.2.0
 ===============
 
-.. image:: https://travis-ci.org/dmpop/sonnenhut.svg?branch=develop
-    :target: https://travis-ci.org/dmpop/sonnenhut
+Sonnenhut is a `SUSE HackWeek 15  <https://hackweek.suse.com/15/projects/sonnenhut-a-python-script-for-linux-photographers>`_ project.
+
+.. image:: http://i.imgur.com/yArzLVp.png
+    :target: https://hackweek.suse.com
 
 A simple Python-based web app for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
@@ -33,6 +35,8 @@ Quick Start
 
      pip install git+https://github.com/dmpop/sonnenhut.git@develop
 
+#. Edit the *sonnenhut.ini* configuration file, if necessary.
+
 #. Run the ``sonnenhut`` command and point your browser to `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *city* with the actual name of the desired city).
 
 Installation
@@ -55,6 +59,8 @@ Installation
 #. Install the package::
 
     $ ./setup.py develop
+
+#. Edit the *sonnenhut.ini* configuration file, if necessary.
 
 Usage
 -----

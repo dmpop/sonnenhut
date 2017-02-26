@@ -2,10 +2,13 @@ from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
 from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast
 import datetime, os.path
+import configparser
 
 @route('/sonnenhut/<city>')
 def sonnenhut(city):
-    note_file = 'sonnenhut.txt'
+    config = configparser.ConfigParser()
+    config.read('sonnenhut.ini')
+    note_file = config.get('sonnenhut', 'note')
 
     location = getlocation(city)
     owm = initowm()
@@ -29,7 +32,7 @@ def sonnenhut(city):
                                                                                  duration=gh_sunset[1]-gh_sunset[0])
 
     weather = getweather(owm, location)
-    
+
     rain, snow = forecast(owm, location)
     if rain == True or snow == True:
         precip = '\u2614'
