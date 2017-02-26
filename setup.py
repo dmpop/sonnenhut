@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
+from setuptools import find_packages
 
 def requires(filename):
     """Returns a list of all pip requirements
@@ -19,12 +20,14 @@ def requires(filename):
     return modules
 
 setup(name='sonnenhut',
-      version='1.1.1',
-      description='A simple tool for photographers',
+      version='1.3.0',
+      description='Simple dashboard for photographers',
       author='Dmitri Popov',
       author_email='dpopov@suse.de',
       url='https://github.com/dmpop/sonnenhut',
       scripts=['bin/sonnenhut'],
+      packages=find_packages('src'),
+      package_dir={'': 'src'},
       install_requires=requires('requirements.txt'),
       classifiers=['Development Status :: 4 - Beta',
                    'Environment :: Console',

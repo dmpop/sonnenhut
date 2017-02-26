@@ -1,6 +1,12 @@
 Changelog
 =========
 
+1.2.0 (2017-02-23)
+-----------------------------------------
+* Refactored the code
+* Added test cases
+* Various bug fixes and improvements
+
 1.1.0 (2017-02-21)
 -----------------------------------------
 
