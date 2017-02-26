@@ -20,7 +20,7 @@ def requires(filename):
     return modules
 
 setup(name='sonnenhut',
-      version='1.2.0',
+      version='1.3.0',
       description='Simple dashboard for photographers',
       author='Dmitri Popov',
       author_email='dpopov@suse.de',
