@@ -1,8 +1,6 @@
 Sonnenhut 1.2.0
 ===============
 
-Sonnenhut is a `SUSE HackWeek 15  <https://hackweek.suse.com/15/projects/sonnenhut-a-python-script-for-linux-photographers>`_ project.
-
 A simple Python-based web app for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
 
