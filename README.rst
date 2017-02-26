@@ -8,6 +8,8 @@ as current weather conditions and golden hour for a specified location.
 
 The app provides the following information:
 
+-  Geographical coordinates and time zone of the specified city
+-  Random photo from Unsplash
 -  Golden hour start and duration
 -  Brief weather summary
 -  Current temperature, wind speed, and humidity
