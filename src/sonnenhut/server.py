@@ -51,14 +51,13 @@ def sonnenhut(city):
     return ('<meta name="viewport" content="width=device-width">'
             '<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>'
             '{}<br />'
-            '<hr align=left width=250px>'
-            '<img src="https://source.unsplash.com/250x175/?city">'
-            '<hr align=left width=250px>'
-            '{}<br />'
-            '{}<br />'
-            '<hr align=left width=250px> '
+            '<hr align=left width=500px>'
+            '<img src="https://source.unsplash.com/500x350/?{}">'
+            '<hr align=left width=500px>'
+            '{} {}'
+            '<hr align=left width=500px> '
             '{}, {}°C, {}m/s, {}% {}<br />'
-            '<hr align=left width=250px> {}').format(general_info,
+            '<hr align=left width=500px> {}').format(general_info,
                                                      city,
                                                      gh_sunrise_line,
                                                      gh_sunset_line,
