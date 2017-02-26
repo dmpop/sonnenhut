@@ -1,5 +1,5 @@
 # Required Python modules
-astral
 pytz
+astral
 pyowm
 bottle
