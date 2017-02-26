@@ -9,7 +9,6 @@ def sonnenhut(city):
     config = configparser.ConfigParser()
     config.read('sonnenhut.ini')
     note_file = config.get('sonnenhut', 'note')
-    unsplash_user = config.get('sonnenhut', 'unsplash_user')
 
     location = getlocation(city)
     owm = initowm()
@@ -53,14 +52,14 @@ def sonnenhut(city):
             '<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>'
             '{}<br />'
             '<hr align=left width=250px>'
-            '<img src="https://source.unsplash.com/user/{}/250x175">'
+            '<img src="https://source.unsplash.com/250x175/?city">'
             '<hr align=left width=250px>'
             '{}<br />'
             '{}<br />'
             '<hr align=left width=250px> '
             '{}, {}°C, {}m/s, {}% {}<br />'
             '<hr align=left width=250px> {}').format(general_info,
-                                                     unsplash_user,
+                                                     city,
                                                      gh_sunrise_line,
                                                      gh_sunset_line,
                                                      weather['status'],
