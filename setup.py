@@ -20,12 +20,14 @@ def requires(filename):
     return modules
 
 setup(name='sonnenhut',
-      version='1.3.0',
+      version='1.3.1',
       description='Simple dashboard for photographers',
       author='Dmitri Popov',
       author_email='dpopov@suse.de',
       url='https://github.com/dmpop/sonnenhut',
       scripts=['bin/sonnenhut'],
+      include_package_data=True,
+      data_file = [('sonnenhut', ['src/sonnenhut/sonnenhut.ini'])],
       packages=find_packages('src'),
       package_dir={'': 'src'},
       install_requires=requires('requirements.txt'),

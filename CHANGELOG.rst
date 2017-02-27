@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.3.1 (2017-02-27)
+-----------------------------------------
+
+* Added RSS feed
+* Added Unsplash photo
+* Fixed .ini issue
+
 1.2.0 (2017-02-23)
 -----------------------------------------
 * Refactored the code

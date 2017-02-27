@@ -18,7 +18,7 @@ project = 'sonnenhut'
 year = '2017'
 author = 'Dmitri Popov'
 copyright = '{0}, {1}'.format(year, author)
-version = release = '1.3.0'
+version = release = '1.3.1'
 
 pygments_style = 'trac'
 templates_path = ['.']
