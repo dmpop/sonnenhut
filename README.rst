@@ -16,7 +16,8 @@ The app provides the following information:
 -  Precipitation warning
 
 The app also shows notes from the accompanying *sonnenhut.txt* file
-(created automatically during the fist run).
+(created automatically during the fist run) and articles from the RSS feed
+specified in the *sonnenhut.ini* file.
 
 
 
