@@ -40,6 +40,10 @@ Installation
 
     $ pip install -U pip setuptools
 
+#. Install the required modules::
+     
+    $ pip install -r requirements.txt
+
 #. Install the package::
 
     $ ./setup.py develop

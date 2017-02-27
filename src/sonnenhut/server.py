@@ -1,17 +1,15 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
-from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast, fetchrss
-import datetime, os.path
+from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast, fetchrss, getconfig
+import datetime, os
 import configparser
 
 @route('/sonnenhut/<city>')
 def sonnenhut(city):
-    config = configparser.ConfigParser()
-    config.read('sonnenhut.ini')
-    note_file = config.get('sonnenhut', 'note')
-
+    config = getconfig()
+    note_file = config.get('sonnenhut', 'note', fallback='').replace('$HOME', os.environ['HOME'])
     location = getlocation(city)
-    owm = initowm()
+    owm = initowm(config)
 
     gh_sunrise = goldenhour(location, direction=SUN_RISING)
     gh_sunset = goldenhour(location, direction=SUN_SETTING)
@@ -46,9 +44,9 @@ def sonnenhut(city):
                 lst.append(line)
         note = '<br />'.join(lst)
     else:
-        open(txt_path, 'a').close()
+        open(note_file, 'a').close()
 
-    rss_feed = fetchrss()
+    rss_feed = fetchrss(config)
 
     return ('<meta name="viewport" content="width=device-width">'
             '<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>'

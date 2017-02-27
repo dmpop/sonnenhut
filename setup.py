@@ -27,6 +27,7 @@ setup(name='sonnenhut',
       url='https://github.com/dmpop/sonnenhut',
       scripts=['bin/sonnenhut'],
       include_package_data=True,
+      data_file = [('', ['sonnen'])]
       packages=find_packages('src'),
       package_dir={'': 'src'},
       install_requires=requires('requirements.txt'),

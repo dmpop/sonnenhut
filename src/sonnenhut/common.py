@@ -1,5 +1,15 @@
 from astral import Astral, GoogleGeocoder
-import pyowm, configparser, feedparser
+import pyowm, configparser, feedparser, os
+
+def getconfig(configfile = 'sonnenhut.ini'):
+    """
+    """
+    config = configparser.ConfigParser()
+    configfiles = config.read(os.path.join(os.path.dirname(__file__), configfile))
+    if not configfiles:
+        print(">>> No config file found!")
+        raise FileNotFoundError("No sonnenhut.ini found! :-(")
+    return config
 
 def getlocation(city):
     """
@@ -13,16 +23,15 @@ def getlocation(city):
     return Astral(GoogleGeocoder)[city]
 
 
-def initowm():
+def initowm(config):
     """
     Initialize OpenWeatherMap service
 
-    :param str apikey: API key for the OWM service
-    :return:
+    :param config: configparser already initialized
+    :type config: :class:`configparser.ConfigParser`
+    :return: owm object
     :rtype:
     """
-    config = configparser.ConfigParser()
-    config.read('sonnenhut.ini')
     api_key = config.get('sonnenhut', 'api_key')
     return pyowm.OWM(api_key)
 
@@ -79,11 +88,12 @@ def forecast(owm, location):
     snow = forecast.will_be_snowy_at(next_3_hours)
     return rain, snow
 
-def fetchrss():
+def fetchrss(config):
     """
+
+    :param config: configparser already initialized
+    :type config: :class:`configparser.ConfigParser`
     """
-    config = configparser.ConfigParser()
-    config.read('sonnenhut.ini')
     rss_url = config.get('sonnenhut', 'rss_url')
     rss = feedparser.parse(rss_url)
     count = 1
