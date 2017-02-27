@@ -7,7 +7,6 @@ def getconfig(configfile = 'sonnenhut.ini'):
     config = configparser.ConfigParser()
     configfiles = config.read(os.path.join(os.path.dirname(__file__), configfile))
     if not configfiles:
-        print(">>> No config file found!")
         raise FileNotFoundError("No sonnenhut.ini found! :-(")
     return config
 
