@@ -19,7 +19,14 @@ The app also shows notes from the accompanying *sonnenhut.txt* file
 (created automatically during the fist run) and articles from the RSS feed
 specified in the *sonnenhut.ini* file.
 
+Quick Start
+===========
 
+#. Run the following command to install Sonnenhut::
+
+  pip3 install git+https://github.com/dmpop/sonnenhut.git@develop
+
+#. Modify the *sonnenhut.ini* file, if necessary.
 
 Installation
 ============
