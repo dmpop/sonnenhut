@@ -3,3 +3,4 @@ astral
 pytz
 pyowm
 bottle
+feedparser

@@ -1,6 +1,6 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
-from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast
+from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast, fetchrss
 import datetime, os.path
 import configparser
 
@@ -38,7 +38,7 @@ def sonnenhut(city):
         precip = '\u2614'
     else:
         precip = '\u2713'
-
+        
     if os.path.isfile(note_file):
         lst = []
         with open(note_file,'r') as text:
@@ -48,22 +48,30 @@ def sonnenhut(city):
     else:
         open(txt_path, 'a').close()
 
+    rss_feed = fetchrss()
+
     return ('<meta name="viewport" content="width=device-width">'
             '<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>'
+            '<h2>Location</h2>'
             '{}<br />'
-            '<hr align=left width=500px>'
+            '<h2>Random Photo</h2>'
             '<img src="https://source.unsplash.com/500x350/?{}">'
-            '<hr align=left width=500px>'
+            '<br />'
+            '<h2>Golden Hour</h2>'
             '{} {}'
-            '<hr align=left width=500px> '
+            '<h2>Current Weather</h2>'
             '{}, {}°C, {}m/s, {}% {}<br />'
-            '<hr align=left width=500px> {}').format(general_info,
-                                                     city,
-                                                     gh_sunrise_line,
-                                                     gh_sunset_line,
-                                                     weather['status'],
-                                                     weather['temp'],
-                                                     weather['wind_speed'],
-                                                     weather['humidity'],
-                                                     precip,
-                                                     note)
+            '<h2>Notes</h2>'
+            '{}'
+            '<br />'
+            '{}').format(general_info,
+                         city,
+                         gh_sunrise_line,
+                         gh_sunset_line,
+                         weather['status'],
+                         weather['temp'],
+                         weather['wind_speed'],
+                         weather['humidity'],
+                         precip,
+                         note,
+                         rss_feed)

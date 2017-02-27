@@ -1,6 +1,5 @@
 from astral import Astral, GoogleGeocoder
-import pyowm
-import configparser
+import pyowm, configparser, feedparser
 
 def getlocation(city):
     """
@@ -79,3 +78,21 @@ def forecast(owm, location):
     rain = forecast.will_be_rainy_at(next_3_hours)
     snow = forecast.will_be_snowy_at(next_3_hours)
     return rain, snow
+
+def fetchrss():
+    """
+    """
+    config = configparser.ConfigParser()
+    config.read('sonnenhut.ini')
+    rss_url = config.get('sonnenhut', 'rss_url')
+    rss = feedparser.parse(rss_url)
+    count = 1
+    html_feed = []
+    for post in rss.entries:
+        if count < 7:
+            item = '<a href="' + post.link + '">' + post.title + '</a><br />'
+            html_feed.append(item)
+            count += 1
+    #print(rss.feed.title)
+    feed = '<h2>' + rss['feed']['title'] +'</h2>' + '\n'.join(html_feed)
+    return feed
