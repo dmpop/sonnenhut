@@ -49,20 +49,21 @@ def sonnenhut(city):
     rss_feed = fetchrss(config)
 
     return ('<meta name="viewport" content="width=device-width">'
-            '<h1 style="letter-spacing: 5px; color: #ffcc00">Sonnenhut</h1>'
-            '<h2>Location</h2>'
-            '{}<br />'
-            '<h2>Unsplash Photo</h2>'
+            '<title>S o n n e n h u t</title>'
+            '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">'
+            '<h1 style="font-family:Lato; letter-spacing: 7px; color: #ffcc00">Sonnenut</h1>'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Location</h2>'
+            '<p style="font-family:Lato">{}</p>'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Unsplash Photo</h2>'
             '<img src="https://source.unsplash.com/500x350/?{}">'
             '<br />'
-            '<h2>Golden Hour</h2>'
-            '{} <br />'
-            '{}'
-            '<h2>Current Weather</h2>'
-            '{}, {}°C, {}m/s, {}% {}<br />'
-            '<h2>Notes</h2>'
-            '{}'
-            '<br />'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Golden Hour</h2>'
+            '<p style="font-family:Lato">{}</p>'
+            '<p style="font-family:Lato">{}</p>'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Current Weather</h2>'
+            '<p style="font-family:Lato">{} &bull; {}°C &bull; {}m/s &bull; {}% &bull; {}</p>'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
+            '<p style="font-family:Lato">{}</p>'
             '{}').format(general_info,
                          city,
                          gh_sunrise_line,
