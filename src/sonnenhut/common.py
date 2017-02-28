@@ -94,11 +94,12 @@ def fetchrss(config):
     :type config: :class:`configparser.ConfigParser`
     """
     rss_url = config.get('sonnenhut', 'rss_url')
+    rss_count = config.get('sonnenhut', 'rss_article_no')
     rss = feedparser.parse(rss_url)
     count = 1
     html_feed = []
     for post in rss.entries:
-        if count < 7:
+        if count <= int(rss_count):
             item = '<a href="' + post.link + '">' + post.title + '</a><br />'
             html_feed.append(item)
             count += 1
