@@ -24,9 +24,13 @@ Quick Start
 
 #. Run the following command to install Sonnenhut::
 
-  pip3 install git+https://github.com/dmpop/sonnenhut.git@develop
+     $ pip3 install git+https://github.com/dmpop/sonnenhut.git@develop
 
 #. Modify the *sonnenhut.ini* file, if necessary.
+
+#. To update Sonnenhut, run the following command::
+
+     $ pip3 install -U git+https://github.com/dmpop/sonnenhut.git@develop
 
 Installation
 ============
@@ -63,6 +67,8 @@ Usage
 Run the ``sonnenhut`` command and point your browser to
 `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *city* with the actual name of the
 desired city).
+
+Use the *sonnenhut.txt* to add notes.
 
 Credits
 -------
