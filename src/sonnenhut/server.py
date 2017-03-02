@@ -14,7 +14,7 @@ def sonnenhut(city):
     gh_sunrise = goldenhour(location, direction=SUN_RISING)
     gh_sunset = goldenhour(location, direction=SUN_SETTING)
 
-    general_info = ('\u2609 %s %s %.02f,%.02f' % (location.name,
+    general_info = ('\u2609 %s &bull; %s &bull; %.02f,%.02f' % (location.name,
                                                    location.timezone,
                                                    location.latitude,
                                                    location.longitude))
