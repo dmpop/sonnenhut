@@ -45,12 +45,13 @@ def sonnenhut(city):
         note = '<br />'.join(lst)
     else:
         open(note_file, 'a').close()
-
+        note = ''
     rss_feed = fetchrss(config)
 
     return ('<meta name="viewport" content="width=device-width">'
             '<title>S o n n e n h u t</title>'
             '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">'
+            '<style>@import url("http://fonts.googleapis.com/css?family=Lato");</style>'
             '<h1 style="font-family:Lato; letter-spacing: 7px; color: #ffcc00">Sonnenut</h1>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Location</h2>'
             '<p style="font-family:Lato">{}</p>'
