@@ -56,7 +56,7 @@ def sonnenhut(city):
             '<h2 style="font-family:Lato; letter-spacing: 3px">Location</h2>'
             '<p style="font-family:Lato">{}</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Unsplash Photo</h2>'
-            '<img src="https://source.unsplash.com/500x350/?{}">'
+            '<img src="https://source.unsplash.com/300x200/?{}">'
             '<br />'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Golden Hour</h2>'
             '<p style="font-family:Lato">{}</p>'
