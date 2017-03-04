@@ -52,7 +52,7 @@ def sonnenhut(city):
             '<title>S o n n e n h u t</title>'
             '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">'
             '<style>@import url("http://fonts.googleapis.com/css?family=Lato");</style>'
-            '<h1 style="font-family:Lato; letter-spacing: 7px; color: #ffcc00">Sonnenut</h1>'
+            '<h1 style="font-family:Lato; letter-spacing: 7px; color: #ffcc00">Sonnenhut</h1>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Location</h2>'
             '<p style="font-family:Lato">{}</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Unsplash Photo</h2>'
