@@ -38,9 +38,9 @@ def sonnenhut(city):
         
     if os.path.isfile(note_file):
         f = open(note_file,'r')
-        md = (markdown.markdown(f.read()))
-        note = md.replace('<p>', '<p style="font-family:Lato">')
+        note = '<style>html * {font-family: Lato !important;}</style>' + (markdown.markdown(f.read()))
         f.close()
+        print(note)
     else:
         open(note_file, 'a').close()
         note = 'Notes go here. Markdown is supported'
