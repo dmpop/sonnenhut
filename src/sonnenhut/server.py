@@ -38,7 +38,8 @@ def sonnenhut(city):
         
     if os.path.isfile(note_file):
         f = open(note_file,'r')
-        note = (markdown.markdown(f.read()))
+        md = (markdown.markdown(f.read()))
+        note = md.replace('p', 'p style="font-family:Lato"')
         f.close()
     else:
         open(note_file, 'a').close()
@@ -47,7 +48,6 @@ def sonnenhut(city):
 
     return ('<meta name="viewport" content="width=device-width">'
             '<title>S o n n e n h u t</title>'
-            '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">'
             '<style>@import url("http://fonts.googleapis.com/css?family=Lato");</style>'
             '<h1 style="font-family:Lato; letter-spacing: 7px; color: #ffcc00">Sonnenhut</h1>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Location</h2>'
@@ -61,7 +61,7 @@ def sonnenhut(city):
             '<h2 style="font-family:Lato; letter-spacing: 3px">Current Weather</h2>'
             '<p style="font-family:Lato">{} &bull; {}°C &bull; {}m/s &bull; {}% &bull; {}</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
-            '<p style="font-family:Lato">{}</p>'
+            '{}'
             '{}').format(general_info,
                          city,
                          gh_sunrise_line,
