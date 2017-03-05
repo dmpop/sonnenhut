@@ -10,23 +10,23 @@ def sonnenhut(city):
     location = getlocation(city)
     owm = initowm(config)
 
-    gh_sunrise = goldenhour(location, direction=SUN_RISING)
-    gh_sunset = goldenhour(location, direction=SUN_SETTING)
+    golden_hour_sunrise = goldenhour(location, direction=SUN_RISING)
+    golden_hour_sunset = goldenhour(location, direction=SUN_SETTING)
 
     general_info = ('\u2609 %s &bull; %s &bull; %.02f,%.02f' % (location.name,
                                                    location.timezone,
                                                    location.latitude,
                                                    location.longitude))
-    gh_sunrise_line = ('\u263C \u2197    '
-                       '{hh:02d}:{mm:02d}:{ss:02d} \u231a {duration} ').format(hh=gh_sunrise[0].hour,
-                                                                               mm=gh_sunrise[0].minute,
-                                                                               ss=gh_sunrise[0].second,
-                                                                               duration=gh_sunrise[1]-gh_sunrise[0])
-    gh_sunset_line = ('\u263C \u2198    '
-                      '{hh:02d}:{mm:02d}:{ss:02d} \u231a {duration}    ').format(hh=gh_sunset[0].hour,
-                                                                                 mm=gh_sunset[0].minute,
-                                                                                 ss=gh_sunset[0].second,
-                                                                                 duration=gh_sunset[1]-gh_sunset[0])
+    golden_hour_sunrise_info = ('\u263C \u2197    '
+                       '{hh:02d}:{mm:02d}:{ss:02d} \u231a {duration} ').format(hh=golden_hour_sunrise[0].hour,
+                                                                               mm=golden_hour_sunrise[0].minute,
+                                                                               ss=golden_hour_sunrise[0].second,
+                                                                        duration=golden_hour_sunrise[1]-golden_hour_sunrise[0])
+    golden_hour_sunset_info = ('\u263C \u2198    '
+                      '{hh:02d}:{mm:02d}:{ss:02d} \u231a {duration}  ').format(hh=golden_hour_sunset[0].hour,
+                                                                                 mm=golden_hour_sunset[0].minute,
+                                                                                 ss=golden_hour_sunset[0].second,
+                                                                        duration=golden_hour_sunset[1]-golden_hour_sunset[0])
 
     weather = getweather(owm, location)
 
@@ -40,7 +40,6 @@ def sonnenhut(city):
         f = open(note_file,'r')
         note = '<style>html * {font-family: Lato !important;}</style>' + (markdown.markdown(f.read()))
         f.close()
-        print(note)
     else:
         f = open(note_file, 'w')
         f.write('Notes go here. Markdown is supported.')
@@ -65,8 +64,8 @@ def sonnenhut(city):
             '{}'
             '{}').format(general_info,
                          city,
-                         gh_sunrise_line,
-                         gh_sunset_line,
+                         golden_hour_sunrise_info,
+                         golden_hour_sunset_info,
                          weather['status'],
                          weather['temp'],
                          weather['wind_speed'],
