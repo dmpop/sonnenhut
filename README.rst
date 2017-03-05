@@ -4,8 +4,6 @@ Sonnenhut 1.3.2
 A simple Python-based web app for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
 
-.. image:: sonnenhut.png
-
 The app provides the following information:
 
 -  Geographical coordinates and time zone of the specified city

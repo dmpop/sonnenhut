@@ -1,8 +1,7 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
 from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast, fetchrss, getconfig
-import datetime, os
-import configparser
+import datetime, os, configparser, markdown
 
 @route('/sonnenhut/<city>')
 def sonnenhut(city):
@@ -38,14 +37,12 @@ def sonnenhut(city):
         precip = '\u2713'
         
     if os.path.isfile(note_file):
-        lst = []
-        with open(note_file,'r') as text:
-            for line in text:
-                lst.append(line)
-        note = '<br />'.join(lst)
+        f = open(note_file,'r')
+        note = (markdown.markdown(f.read()))
+        f.close()
     else:
         open(note_file, 'a').close()
-        note = ''
+        note = 'Notes go here. Markdown is supported'
     rss_feed = fetchrss(config)
 
     return ('<meta name="viewport" content="width=device-width">'
