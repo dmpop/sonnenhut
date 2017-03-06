@@ -43,6 +43,7 @@ def sonnenhut(city):
     else:
         f = open(note_file, 'w')
         f.write('Notes go here. Markdown is supported.')
+        f.close()
         note = '<p style="font-family:Lato">New sonnenhut.md file has been created.</p>'
     rss_feed = fetchrss(config)
 
