@@ -1,6 +1,6 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
-from sonnenhut.common import getlocation, initowm, goldenhour, getweather, forecast, fetchrss, getconfig
+from sonnenhut.common import getlocation, initowm, getapi, getdarksky, goldenhour, getweather, forecast, fetchrss, getconfig
 import datetime, os, configparser, markdown
 
 @route('/sonnenhut/<city>')
@@ -9,6 +9,7 @@ def sonnenhut(city):
     note_file = config.get('sonnenhut', 'note', fallback='').replace('$HOME', os.environ['HOME'])
     location = getlocation(city)
     owm = initowm(config)
+    ds_api_key = getapi(config)
 
     golden_hour_sunrise = goldenhour(location, direction=SUN_RISING)
     golden_hour_sunset = goldenhour(location, direction=SUN_SETTING)
@@ -27,6 +28,8 @@ def sonnenhut(city):
                                                                                  mm=golden_hour_sunset[0].minute,
                                                                                  ss=golden_hour_sunset[0].second,
                                                                         duration=golden_hour_sunset[1]-golden_hour_sunset[0])
+
+    meteo = getdarksky(ds_api_key, location)
 
     weather = getweather(owm, location)
 
@@ -60,17 +63,15 @@ def sonnenhut(city):
             '<p style="font-family:Lato">{}</p>'
             '<p style="font-family:Lato">{}</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Current Weather</h2>'
-            '<p style="font-family:Lato">{} &bull; {}°C &bull; {}m/s &bull; {}% &bull; {}</p>'
+            '<p style="font-family:Lato">{} &bull; {}m/s &bull; \u2614 {}%</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
             '{}'
             '{}').format(general_info,
                          city,
                          golden_hour_sunrise_info,
                          golden_hour_sunset_info,
-                         weather['status'],
-                         weather['temp'],
-                         weather['wind_speed'],
-                         weather['humidity'],
-                         precip,
+                         meteo['summary'],
+                         meteo['wind_speed'],
+                         meteo['precip'],
                          note,
                          rss_feed)

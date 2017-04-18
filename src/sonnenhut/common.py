@@ -1,5 +1,6 @@
 from astral import Astral, GoogleGeocoder
-import pyowm, configparser, feedparser, os
+import pyowm, configparser, feedparser, os, requests
+import json
 
 def getconfig(configfile = 'sonnenhut.ini'):
     """
@@ -20,6 +21,18 @@ def getlocation(city):
     :rtype: :class:`astral.Location`
     """
     return Astral(GoogleGeocoder)[city]
+
+def getapi(config):
+    """
+    Initialize OpenWeatherMap service
+
+    :param config: configparser already initialized
+    :type config: :class:`configparser.ConfigParser`
+    :return: owm object
+    :rtype:
+    """
+    ds_api_key = config.get('sonnenhut', 'ds_api_key')
+    return ds_api_key
 
 
 def initowm(config):
@@ -48,6 +61,24 @@ def goldenhour(location, direction):
     """
     return location.golden_hour(direction=direction, date=None, local=True)
     
+def getdarksky(ds_api_key, location):
+    """
+    Get weather data for the given location
+
+    :param owm: OpenWeatherMap API
+    :type owm: :class:`pyowm.webapi25.owm25.OWM25`
+    :param location: location of the specified city
+    :type location: :class:`astral.Location`
+    :return: weather data dictionary
+    :rtype: dict
+    """
+    meteodict = {}
+    meteo = requests.get('https://api.darksky.net/forecast/' + str(ds_api_key) + '/' + str(location.latitude) + ',' + str(location.longitude) + '?units=si').json()
+    meteodict['summary'] = meteo['daily']['data'][1]['summary']
+    meteodict['wind_speed'] = meteo['daily']['data'][5]['windSpeed']
+    #meteodict['temp'] = w.get_temperature('celsius').get('temp', 'N/A')
+    meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']
+    return meteodict
 
 def getweather(owm, location):
     """
