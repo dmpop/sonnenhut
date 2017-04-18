@@ -1,6 +1,6 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
-from sonnenhut.common import getlocation, initowm, getapi, getdarksky, goldenhour, getweather, forecast, fetchrss, getconfig
+from sonnenhut.common import getlocation, getapi, getdarksky, goldenhour, getweather, fetchrss, getconfig
 import datetime, os, configparser, markdown
 
 @route('/sonnenhut/<city>')
@@ -8,8 +8,7 @@ def sonnenhut(city):
     config = getconfig()
     note_file = config.get('sonnenhut', 'note', fallback='').replace('$HOME', os.environ['HOME'])
     location = getlocation(city)
-    owm = initowm(config)
-    ds_api_key = getapi(config)
+    api_key = getapi(config)
 
     golden_hour_sunrise = goldenhour(location, direction=SUN_RISING)
     golden_hour_sunset = goldenhour(location, direction=SUN_SETTING)
@@ -29,15 +28,7 @@ def sonnenhut(city):
                                                                                  ss=golden_hour_sunset[0].second,
                                                                         duration=golden_hour_sunset[1]-golden_hour_sunset[0])
 
-    meteo = getdarksky(ds_api_key, location)
-
-    weather = getweather(owm, location)
-
-    rain, snow = forecast(owm, location)
-    if rain == True or snow == True:
-        precip = '\u2614'
-    else:
-        precip = '\u2713'
+    meteo = getdarksky(api_key, location)
         
     if os.path.isfile(note_file):
         f = open(note_file,'r')
