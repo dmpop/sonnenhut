@@ -1,4 +1,4 @@
-Sonnenhut 1.3.2
+Sonnenhut 1.4.0
 ===============
 
 A simple Python-based web app for photographers that displays basic information such
