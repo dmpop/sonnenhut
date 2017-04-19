@@ -1,5 +1,6 @@
 from astral import Astral, GoogleGeocoder
-import pyowm, configparser, feedparser, os
+import configparser, feedparser, os, requests
+import json
 
 def getconfig(configfile = 'sonnenhut.ini'):
     """
@@ -7,7 +8,7 @@ def getconfig(configfile = 'sonnenhut.ini'):
     config = configparser.ConfigParser()
     configfiles = config.read(os.path.join(os.path.dirname(__file__), configfile))
     if not configfiles:
-        raise FileNotFoundError("No sonnenhut.ini found! :-(")
+        raise FileNotFoundError("No sonnenhut.ini found!")
     return config
 
 def getlocation(city):
@@ -21,18 +22,17 @@ def getlocation(city):
     """
     return Astral(GoogleGeocoder)[city]
 
-
-def initowm(config):
+def getapi(config):
     """
-    Initialize OpenWeatherMap service
+    Get a Dark Sky API key
 
     :param config: configparser already initialized
     :type config: :class:`configparser.ConfigParser`
-    :return: owm object
-    :rtype:
+    :return: api_key string
+    :rtype: string
     """
     api_key = config.get('sonnenhut', 'api_key')
-    return pyowm.OWM(api_key)
+    return api_key
 
 
 def goldenhour(location, direction):
@@ -48,44 +48,20 @@ def goldenhour(location, direction):
     """
     return location.golden_hour(direction=direction, date=None, local=True)
     
-
-def getweather(owm, location):
+def getdarksky(api_key, location):
     """
     Get weather data for the given location
-
-    :param owm: OpenWeatherMap API
-    :type owm: :class:`pyowm.webapi25.owm25.OWM25`
-    :param location: location of the specified city
-    :type location: :class:`astral.Location`
     :return: weather data dictionary
     :rtype: dict
     """
-    weatherdict = {}
-    weather = owm.weather_at_coords(location.latitude, location.longitude)
-    w = weather.get_weather()
-    weatherdict['status'] = w.get_status()
-    weatherdict['wind_speed'] = w.get_wind().get('speed', 'N/A')
-    weatherdict['temp'] = w.get_temperature('celsius').get('temp', 'N/A')
-    weatherdict['humidity'] = w.get_humidity()
-    return weatherdict
-
-
-def forecast(owm, location):
-    """
-    Get weather forecast, return rain and snow status
-
-    :param owm: OpenWeatherMap API
-    :type owm: :class:`pyowm.webapi25.owm25.OWM25`
-    :param location: location of the specified city
-    :type location: :class:`astral.Location`
-    :return: tuple with Boolean rain and snow
-    :rtype: tuple
-    """
-    forecast = owm.daily_forecast_at_coords(location.latitude, location.longitude, limit=None)
-    next_3_hours = pyowm.utils.timeutils.next_three_hours(date=None)
-    rain = forecast.will_be_rainy_at(next_3_hours)
-    snow = forecast.will_be_snowy_at(next_3_hours)
-    return rain, snow
+    meteodict = {}
+    meteo = requests.get('https://api.darksky.net/forecast/' + str(api_key) + '/' + str(location.latitude) + ',' + str(location.longitude) + '?units=si').json()
+    meteodict['summary'] = meteo['daily']['data'][1]['summary']
+    meteodict['temp'] = meteo['currently']['temperature']
+    meteodict['wind_speed'] = meteo['currently']['windSpeed']
+    meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']
+    meteodict['visibility'] = meteo['currently']['visibility']
+    return meteodict
 
 def fetchrss(config):
     """
