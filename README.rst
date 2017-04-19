@@ -10,11 +10,10 @@ The app provides the following information:
 -  Random Unsplash photo of the specified city
 -  Golden hour start and duration
 -  Brief weather summary
--  Current temperature, wind speed, and humidity
--  Precipitation warning
+-  Current temperature, wind speed, precipitation probability, and visibility
 
 The app also shows notes from the accompanying *sonnenhut.txt* file
-(created automatically during the fist run) and articles from the RSS feed
+(created automatically during the first run) and articles from the RSS feed
 specified in the *sonnenhut.ini* file.
 
 Quick Start
