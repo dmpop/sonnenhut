@@ -1,6 +1,6 @@
 from astral import SUN_SETTING, SUN_RISING
 from bottle import route, run
-from sonnenhut.common import getlocation, getapi, getdarksky, goldenhour, getweather, fetchrss, getconfig
+from sonnenhut.common import getlocation, getapi, getdarksky, goldenhour, fetchrss, getconfig
 import datetime, os, configparser, markdown
 
 @route('/sonnenhut/<city>')
@@ -59,6 +59,7 @@ def sonnenhut(city):
             '<p style="font-family:Lato">Wind speed: {}m/s</p>'
             '<p style="font-family:Lato">Precipitation probability: {}%</p>'
             '<p style="font-family:Lato">Visibility: {}km</p>'
+            '<p style="font-family:Lato"><a href="https://darksky.net/poweredby">Powered by Dark Sky</a></p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
             '{}'
             '{}').format(general_info,
@@ -66,9 +67,9 @@ def sonnenhut(city):
                          golden_hour_sunrise_info,
                          golden_hour_sunset_info,
                          meteo['summary'],
-                         meteo['temp']
+                         meteo['temp'],
                          meteo['wind_speed'],
                          meteo['precip'],
-                         meteo['visibility']
+                         meteo['visibility'],
                          note,
                          rss_feed)
