@@ -54,7 +54,11 @@ def sonnenhut(city):
             '<p style="font-family:Lato">{}</p>'
             '<p style="font-family:Lato">{}</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Current Weather</h2>'
-            '<p style="font-family:Lato">{} &bull; {}m/s &bull; \u2614 {}%</p>'
+            '<p style="font-family:Lato">{}'
+            '<p style="font-family:Lato">Temperature: {}°C</p>'
+            '<p style="font-family:Lato">Wind speed: {}m/s</p>'
+            '<p style="font-family:Lato">Precipitation probability: {}%</p>'
+            '<p style="font-family:Lato">Visibility: {}km</p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
             '{}'
             '{}').format(general_info,
@@ -62,7 +66,9 @@ def sonnenhut(city):
                          golden_hour_sunrise_info,
                          golden_hour_sunset_info,
                          meteo['summary'],
+                         meteo['temp']
                          meteo['wind_speed'],
                          meteo['precip'],
+                         meteo['visibility']
                          note,
                          rss_feed)

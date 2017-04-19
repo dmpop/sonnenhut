@@ -57,9 +57,10 @@ def getdarksky(api_key, location):
     meteodict = {}
     meteo = requests.get('https://api.darksky.net/forecast/' + str(ds_api_key) + '/' + str(location.latitude) + ',' + str(location.longitude) + '?units=si').json()
     meteodict['summary'] = meteo['daily']['data'][1]['summary']
-    meteodict['wind_speed'] = meteo['daily']['data'][5]['windSpeed']
-    #meteodict['temp'] = w.get_temperature('celsius').get('temp', 'N/A')
+    meteodict['temp'] = meteo['currently']['temperature']
+    meteodict['wind_speed'] = meteo['currently']['windSpeed']
     meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']
+    meteodic['visibility'] = meteo['currently']['visibility']
     return meteodict
 
 def fetchrss(config):
