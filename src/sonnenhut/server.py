@@ -29,7 +29,7 @@ def sonnenhut(city):
                                                                         duration=golden_hour_sunset[1]-golden_hour_sunset[0])
 
     meteo = getdarksky(api_key, location)
-        
+
     if os.path.isfile(note_file):
         f = open(note_file,'r')
         note = '<style>html * {font-family: Lato !important;}</style>' + (markdown.markdown(f.read()))
