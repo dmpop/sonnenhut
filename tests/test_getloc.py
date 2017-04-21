@@ -1,9 +1,8 @@
 #
 
-from sonnenhut.common import getlocation, forecast, getweather
+from sonnenhut.common import getlocation 
 from unittest.mock import patch, Mock, MagicMock
 import astral
-import pyowm
 import datetime
 
 
@@ -14,6 +13,8 @@ def test_getlocation(mock_astral):
     assert getlocation(city) == city
 
 
+
+"""
 @patch('sonnenhut.common.pyowm.utils.timeutils')
 @patch('sonnenhut.common.pyowm')
 def test_forecast(mock_owm, mock_timeutils):
@@ -48,3 +49,4 @@ def test_getweather(mock_owm):
     weatherdict = getweather(mock_owm, nbg_loc)
     assert observation.get_weather.called
     assert weatherdict == resultdict
+"""

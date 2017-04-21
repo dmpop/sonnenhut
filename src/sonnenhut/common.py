@@ -2,6 +2,7 @@ from astral import Astral, GoogleGeocoder
 import configparser, feedparser, os, requests
 import json
 
+
 def getconfig(configfile = 'sonnenhut.ini'):
     """
     """
@@ -10,6 +11,7 @@ def getconfig(configfile = 'sonnenhut.ini'):
     if not configfiles:
         raise FileNotFoundError("No sonnenhut.ini found!")
     return config
+
 
 def getlocation(city):
     """
@@ -21,6 +23,7 @@ def getlocation(city):
     :rtype: :class:`astral.Location`
     """
     return Astral(GoogleGeocoder)[city]
+
 
 def getapi(config):
     """
@@ -47,7 +50,8 @@ def goldenhour(location, direction):
     :rtype: tuple
     """
     return location.golden_hour(direction=direction, date=None, local=True)
-    
+
+
 def getdarksky(api_key, location):
     """
     Get weather data for the given location
@@ -55,13 +59,19 @@ def getdarksky(api_key, location):
     :rtype: dict
     """
     meteodict = {}
-    meteo = requests.get('https://api.darksky.net/forecast/' + str(api_key) + '/' + str(location.latitude) + ',' + str(location.longitude) + '?units=si').json()
+    URL = 'https://api.darksky.net/forecast/{key}/{lat},{long}?units=si'
+    meteo = requests.get(URL.format(key=api_key, lat=loc.latitude, long=loc.longitude))
+    if meteo.status_code != 200:
+        # Raise some problems when we don't reach the URL
+        raise requests.RequestException()
+    meteo = meto.json()
     meteodict['summary'] = meteo['daily']['data'][1]['summary']
     meteodict['temp'] = meteo['currently']['temperature']
     meteodict['wind_speed'] = meteo['currently']['windSpeed']
     meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']
     meteodict['visibility'] = meteo['currently']['visibility']
     return meteodict
+
 
 def fetchrss(config):
     """
@@ -76,9 +86,12 @@ def fetchrss(config):
     html_feed = []
     for post in rss.entries:
         if count <= int(rss_count):
-            item = '<p style="font-family:Lato"><a href="' + post.link + '">' + post.title + '</a></p>'
+            item = '<p style="font-family:Lato"><a href="{post.link}">{post.title}</a></p>'.format(post=post)
+            # item = '<p style="font-family:Lato"><a href="' + post.link + '">' + post.title + '</a></p>'
             html_feed.append(item)
             count += 1
     #print(rss.feed.title)
-    feed = '<h2 style="font-family:Lato; letter-spacing: 3px">' + rss['feed']['title'] +'</h2>' + '\n'.join(html_feed)
+    feed = '<h2 style="font-family:Lato; letter-spacing: 3px">{title}</h2>{feed}'.format(title=rss['feed']['title'],
+                                                                                         feed=html_feed)
+    # feed = '<h2 style="font-family:Lato; letter-spacing: 3px">' + rss['feed']['title'] +'</h2>' + '\n'.join(html_feed)
     return feed

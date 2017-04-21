@@ -1,6 +1,9 @@
 Sonnenhut 1.4.0
 ===============
 
+.. image:: https://travis-ci.org/dmpop/sonnenhut.svg?branch=develop
+    :target: https://travis-ci.org/dmpop/sonnenhut
+
 A simple Python-based web app for photographers that displays basic information such
 as current weather conditions and golden hour for a specified location.
 
