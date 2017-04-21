@@ -15,7 +15,7 @@ The app provides the following information:
 -  Brief weather summary
 -  Current temperature, wind speed, precipitation probability, and visibility
 
-The app also shows notes from the accompanying *sonnenhut.txt* file
+The app also shows notes from the accompanying *sonnenhut.md* file
 (created automatically during the first run) and articles from the RSS feed
 specified in the *sonnenhut.ini* file.
 
@@ -68,7 +68,7 @@ Run the ``sonnenhut`` command and point your browser to
 `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *city* with the actual name of the
 desired city).
 
-Use the *sonnenhut.txt* to add notes.
+Use the *sonnenhut.md* to add notes.
 
 Credits
 -------
