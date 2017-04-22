@@ -60,11 +60,11 @@ def getdarksky(api_key, location):
     """
     meteodict = {}
     URL = 'https://api.darksky.net/forecast/{key}/{lat},{long}?units=si'
-    meteo = requests.get(URL.format(key=api_key, lat=loc.latitude, long=loc.longitude))
+    meteo = requests.get(URL.format(key=api_key, lat=location.latitude, long=location.longitude))
     if meteo.status_code != 200:
         # Raise some problems when we don't reach the URL
         raise requests.RequestException()
-    meteo = meto.json()
+    meteo = meteo.json()
     meteodict['summary'] = meteo['daily']['data'][1]['summary']
     meteodict['temp'] = meteo['currently']['temperature']
     meteodict['wind_speed'] = meteo['currently']['windSpeed']
