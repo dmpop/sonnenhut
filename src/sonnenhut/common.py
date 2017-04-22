@@ -87,11 +87,8 @@ def fetchrss(config):
     for post in rss.entries:
         if count <= int(rss_count):
             item = '<p style="font-family:Lato"><a href="{post.link}">{post.title}</a></p>'.format(post=post)
-            # item = '<p style="font-family:Lato"><a href="' + post.link + '">' + post.title + '</a></p>'
             html_feed.append(item)
             count += 1
-    #print(rss.feed.title)
     feed = '<h2 style="font-family:Lato; letter-spacing: 3px">{title}</h2>{feed}'.format(title=rss['feed']['title'],
-                                                                                         feed=html_feed)
-    # feed = '<h2 style="font-family:Lato; letter-spacing: 3px">' + rss['feed']['title'] +'</h2>' + '\n'.join(html_feed)
+                                                                                         feed='\n'.join(html_feed))
     return feed
