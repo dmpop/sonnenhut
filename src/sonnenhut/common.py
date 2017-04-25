@@ -68,7 +68,7 @@ def getdarksky(api_key, location):
     meteodict['summary'] = meteo['daily']['data'][1]['summary']
     meteodict['temp'] = meteo['currently']['temperature']
     meteodict['wind_speed'] = meteo['currently']['windSpeed']
-    meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']
+    meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']*100
     meteodict['visibility'] = meteo['currently']['visibility']
     return meteodict
 
