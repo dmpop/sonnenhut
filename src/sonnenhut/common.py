@@ -62,16 +62,30 @@ def getdarksky(api_key, location):
     URL = 'https://api.darksky.net/forecast/{key}/{lat},{long}?units=si'
     meteo = requests.get(URL.format(key=api_key, lat=location.latitude, long=location.longitude))
     if meteo.status_code != 200:
-        # Raise some problems when we don't reach the URL
         raise requests.RequestException()
     meteo = meteo.json()
-    meteodict['week'] = meteo['daily']['summary']
-    meteodict['today'] = meteo['daily']['data'][1]['summary']
-    meteodict['temp'] = meteo['currently']['temperature']
-    meteodict['wind_speed'] = meteo['currently']['windSpeed']
-    meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']*100
+    try:
+        meteodict['week'] = meteo['daily']['summary']
+    except:
+        meteodict['week'] = '?'
+    try:
+        meteodict['today'] = meteo['daily']['data'][1]['summary']
+    except:
+        meteodict['today'] = '?'
+    try:
+        meteodict['temp'] = '{:.2f}'.format(meteo['currently']['temperature'])
+    except:
+        meteodict['temp'] = '?'
+    try:
+        meteodict['wind_speed'] = '{:.2f}'.format(meteo['currently']['windSpeed'])
+    except:
+        meteodict['wind_speed'] = '?'
+    try:
+        meteodict['precip'] = '{:.0f}'.format(meteo['daily']['data'][2]['precipProbability']*100)
+    except:
+        meteodict['precip']  = '?'
     return meteodict
-
+        
 
 def fetchrss(config):
     """
