@@ -65,11 +65,11 @@ def getdarksky(api_key, location):
         # Raise some problems when we don't reach the URL
         raise requests.RequestException()
     meteo = meteo.json()
-    meteodict['summary'] = meteo['daily']['data'][1]['summary']
+    meteodict['week'] = meteo['daily']['summary']
+    meteodict['today'] = meteo['daily']['data'][1]['summary']
     meteodict['temp'] = meteo['currently']['temperature']
     meteodict['wind_speed'] = meteo['currently']['windSpeed']
     meteodict['precip'] = meteo['daily']['data'][2]['precipProbability']*100
-    meteodict['visibility'] = meteo['currently']['visibility']
     return meteodict
 
 

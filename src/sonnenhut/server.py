@@ -53,12 +53,12 @@ def sonnenhut(city):
             '<h2 style="font-family:Lato; letter-spacing: 3px">Golden Hour</h2>'
             '<p style="font-family:Lato">{}</p>'
             '<p style="font-family:Lato">{}</p>'
-            '<h2 style="font-family:Lato; letter-spacing: 3px">Current Weather</h2>'
-            '<p style="font-family:Lato">{}'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Weather</h2>'
+            '<p style="font-family:Lato">Forecast: {}'
+            '<p style="font-family:Lato">Today: {}'
             '<p style="font-family:Lato">Temperature: {:.2f}°C</p>'
             '<p style="font-family:Lato">Wind speed: {:.2f}m/s</p>'
             '<p style="font-family:Lato">Precipitation probability: {:.0f}%</p>'
-            '<p style="font-family:Lato">Visibility: {:.0f}km</p>'
             '<p style="font-family:Lato"><a href="https://darksky.net/poweredby">Powered by Dark Sky</a></p>'
             '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
             '{}'
@@ -66,10 +66,10 @@ def sonnenhut(city):
                          city,
                          golden_hour_sunrise_info,
                          golden_hour_sunset_info,
-                         meteo['summary'],
+                         meteo['week'],
+                         meteo['today'],
                          meteo['temp'],
                          meteo['wind_speed'],
                          meteo['precip'],
-                         meteo['visibility'],
                          note,
                          rss_feed)

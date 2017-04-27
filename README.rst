@@ -12,8 +12,8 @@ The app provides the following information:
 -  Geographical coordinates and time zone of the specified city
 -  Random Unsplash photo of the specified city
 -  Golden hour start and duration
--  Brief weather summary
--  Current temperature, wind speed, precipitation probability, and visibility
+-  Weather forecast
+-  Current temperature, wind speed, and precipitation probability
 
 The app also shows notes from the accompanying *sonnenhut.md* file
 (created automatically during the first run) and articles from the RSS feed
