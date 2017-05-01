@@ -26,7 +26,7 @@ Quick Start
 
      $ pip3 install git+https://github.com/dmpop/sonnenhut.git@develop
 
-#. Modify the *sonnenhut.ini* file, if necessary.
+#. Modify the ``sonnenhut.ini`` file, if necessary.
 
 #. To update Sonnenhut, run the following command::
 
@@ -35,7 +35,19 @@ Quick Start
 Installation
 ============
 
-#. Install the required packages. On openSUSE, run the ``sudo zypper in python3 python3-virtualenv python3-pip`` command.
+#. Install the required packages:
+
+   * On openSUSE, run::
+
+       $ sudo zypper in python3 python3-virtualenv python3-pip
+
+   * On Fedora, run::
+
+       $ sudo dnf install python3 python3-virtualenv python3-pip
+
+   * On Debian/Ubuntu, run::
+
+       $ sudo apt-get install python3 python3-venv python3-virtualenv python3-pip
 
 #. Clone the project's repository::
 
@@ -44,7 +56,7 @@ Installation
 
 #. Create a Python 3 environment and activate it::
 
-    $ pyvenv .env
+    $ python3 -m venv .env
     $ source .env/bin/activate
 
 #. Optionally update the ``pip`` and ``setuptools`` modules::
@@ -52,23 +64,23 @@ Installation
     $ pip install -U pip setuptools
 
 #. Install the required modules::
-     
+
     $ pip install -r requirements.txt
 
 #. Install the package::
 
     $ ./setup.py develop
 
-#. Edit the *sonnenhut.ini* configuration file, if necessary.
+#. Edit the ``sonnenhut.ini`` configuration file, if necessary.
 
 Usage
 -----
 
-Run the ``sonnenhut`` command and point your browser to
+Run the :command:`sonnenhut` command and point your browser to
 `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *city* with the actual name of the
 desired city).
 
-Use the *sonnenhut.md* text file to add notes. You can use Markdown for text formatting.
+Use the ``sonnenhut.md`` text file to add notes. You can use Markdown for text formatting.
 
 Credits
 -------
