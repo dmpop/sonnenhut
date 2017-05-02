@@ -62,8 +62,11 @@ def goldenhour(location, direction):
 
 
 def getdarksky(api_key, location):
-    """
-    Get weather data for the given location
+    """Get weather data for the given location
+
+    :param str api_key: the API key from DarkSky
+    :param location: the location
+    :type location: :class:`astral.Location`
     :return: weather data dictionary
     :rtype: dict
     """
