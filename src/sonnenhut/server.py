@@ -3,7 +3,7 @@
 import os
 import markdown
 from astral import SUN_RISING, SUN_SETTING
-from bottle import route
+from bottle import route, run
 from sonnenhut.common import (fetchrss, getapi, getconfig, getdarksky,
                               getlocation, goldenhour)
 
