@@ -5,3 +5,4 @@
 bumpversion
 pytest
 pytest-cov
+pytest-catchlog
