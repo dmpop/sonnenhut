@@ -80,7 +80,7 @@ Run the ``sonnenhut`` command and point your browser to
 `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *city* with the actual name of the
 desired city).
 
-Use the ``sonnenhut.md`` text file to add notes. You can use Markdown for text formatting.
+Add notes to the ``sonnenhut.md`` text file. You can use Markdown for text formatting.
 
 Credits
 -------
