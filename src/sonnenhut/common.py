@@ -61,6 +61,32 @@ def goldenhour(location, direction):
     return location.golden_hour(direction=direction, date=None, local=True)
 
 
+def safeget(dct, *keys, default='?'):
+    """Helper function to hide the ugliness of accessing nested dictionaries with lists
+
+    >>> exampledict = {'a': {'b': 1, 'c': [{'aa': 23, 'bb': 45}], 'd': 3}}
+    >>> safeget(exampledict, 'a', 'b')
+    1
+    >>> safeget(exampledict, 'a', 'x')
+    '?'
+    >>> safeget(exampledict, 'a', 'x', default='???')
+    '???'
+    >>> safeget(exampledict, 'a', 'c', 0, 'bb')
+    45
+
+    :param dict dct: Dictionary
+    :param tuple keys: Keys to access, usually strings or integers
+    :param str default: the default value if the keys couldn't be accessed
+    :return: the value in the dictionary or the default value
+    """
+    for key in keys:
+        try:
+            dct = dct[key]
+        except KeyError:
+            return default
+    return dct
+
+
 def getdarksky(api_key, location):
     """Get weather data for the given location
 
@@ -76,48 +102,48 @@ def getdarksky(api_key, location):
     if meteo.status_code != 200:
         raise requests.RequestException()
     meteo = meteo.json()
-    try:
-        meteodict['week'] = meteo['daily']['summary']
-    except:
-        meteodict['week'] = '?'
-    try:
-        meteodict['today'] = meteo['daily']['data'][1]['summary']
-    except:
-        meteodict['today'] = '?'
-    try:
-        meteodict['temp'] = '{:.2f}'.format(meteo['currently']['temperature'])
-    except:
-        meteodict['temp'] = '?'
-    try:
-        meteodict['wind_speed'] = '{:.2f}'.format(meteo['currently']['windSpeed'])
-    except:
-        meteodict['wind_speed'] = '?'
-    try:
-        meteodict['precip'] = '{:.0f}'.format(meteo['daily']['data'][2]['precipProbability']*100)
-    except:
-        meteodict['precip'] = '?'
+
+    meteodict['week'] = safeget(meteo, 'daily', 'summary')
+    meteodict['today'] = safeget(meteo, 'daily', 'data', 1, 'summary')
+    meteodict['temp'] = '{:.2f}'.format(safeget(meteo,
+                                                'currently', 'temperature',
+                                                default=float('NaN')))
+    meteodict['wind_speed'] = '{:.2f}'.format(safeget(meteo,
+                                                      'currently', 'windSpeed',
+                                                      default=float('NaN')))
+
+    meteodict['precip'] = '{:.0f}'.format(safeget(meteo,
+                                                  'daily', 'data', 2, 'precipProbability',
+                                                  default=float('NaN'))*100)
     return meteodict
 
 
-def fetchrss(config):
+def process_rss(rss, max_show):
+    """Process RSS entries
+
+    :param rss: the result of ``feedparser.parse``
+    :type rss: :class:`feedparser.FeedParserDict`
+    :param int max_show: number of RSS articles to show
+    :yield: string of HTML tags
     """
+    for post in rss.entries[:max_show]:
+        yield ('<p style="font-family:Lato">'
+               '<a href="{post.link}">{post.title}</a>'
+               '</p>').format(post=post)
+
+
+def fetchrss(config):
+    """Fetch a RSS stream
 
     :param config: configparser already initialized
     :type config: :class:`configparser.ConfigParser`
     """
     rss_url = config.get('sonnenhut', 'rss_url')
-    rss_count = config.get('sonnenhut', 'rss_article_no')
+    rss_count = int(config.get('sonnenhut', 'rss_article_no'))
     rss = feedparser.parse(rss_url)
-    count = 1
-    html_feed = []
-    for post in rss.entries:
-        if count <= int(rss_count):
-            item = ('<p style="font-family:Lato">'
-                    '<a href="{post.link}">{post.title}</a>'
-                    '</p>').format(post=post)
-            html_feed.append(item)
-            count += 1
+
+    # Create the feed string:
     feed = ('<h2 style="font-family:Lato; letter-spacing: 3px">{title}</h2>'
             '{feed}').format(title=rss['feed']['title'],
-                             feed='\n'.join(html_feed))
+                             feed='\n'.join(process_rss(rss, rss_count)))
     return feed
