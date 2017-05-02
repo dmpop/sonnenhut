@@ -991,3 +991,37 @@ JSONDATA = {'currently': {'apparentTemperature': 5.72,
  'longitude': 11.078611,
  'offset': 2,
  'timezone': 'Europe/Berlin'}
+
+
+#
+# This is a single RSS entry from the feedparser, taken from
+# http://www.amateurphotographer.co.uk/feed
+RSS_SINGLE_ENTRY = {'author': 'Jon Devo',
+ 'author_detail': {'name': 'Jon Devo'},
+ 'authors': [{'name': 'Jon Devo'}],
+ 'comments': 'http://www.amateurphotographer.co.uk/latest/photo-news/come-visit-ap-london-lens-show-105195#respond',
+ 'guidislink': False,
+ 'id': 'http://www.amateurphotographer.co.uk/?p=105195',
+ 'link': 'http://www.amateurphotographer.co.uk/latest/photo-news/come-visit-ap-london-lens-show-105195',
+ 'links': [{'href': 'http://www.amateurphotographer.co.uk/latest/photo-news/come-visit-ap-london-lens-show-105195',
+   'rel': 'alternate',
+   'type': 'text/html'}],
+ 'published': 'Mon, 01 May 2017 13:04:22 +0000',
+ 'published_parsed': None, # time.struct_time(tm_year=2017, tm_mon=5, tm_mday=1, tm_hour=13, tm_min=4, tm_sec=22, tm_wday=0, tm_yday=121, tm_isdst=0),
+ 'slash_comments': '0',
+ 'summary': '<p class="entry-lead-paragraph"><strong>If you’re free this coming Saturday, the 6th May, and within reach of London why not come and say hello to Amateur Photographer at the London Lens Show? You’ll be able to meet the AP Editor, Nigel Atherton, and get a copy of next week’s AP for just £1. When you’re done visiting AP there’s lots more to see at the show. <br />\n</strong></p><figure><img width="300" height="166" src="http://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site-300x166.jpg" class="attachment-medium size-medium" alt="London lens show banner 1" srcset="https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site-300x166.jpg 300w, https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site-630x349.jpg 630w, https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site.jpg 848w" sizes="(max-width: 300px) 100vw, 300px" /></figure>If you’re free this coming Saturday, the 6th May, and within reach of London why not come and say hello to Amateur Photographer at the London Lens Show and take advantage of an exclusive deal on the day.',
+ 'summary_detail': {'base': 'http://www.amateurphotographer.co.uk/feed',
+  'language': None,
+  'type': 'text/html',
+  'value': '<p class="entry-lead-paragraph"><strong>If you’re free this coming Saturday, the 6th May, and within reach of London why not come and say hello to Amateur Photographer at the London Lens Show? You’ll be able to meet the AP Editor, Nigel Atherton, and get a copy of next week’s AP for just £1. When you’re done visiting AP there’s lots more to see at the show. <br />\n</strong></p><figure><img width="300" height="166" src="http://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site-300x166.jpg" class="attachment-medium size-medium" alt="London lens show banner 1" srcset="https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site-300x166.jpg 300w, https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site-630x349.jpg 630w, https://keyassets.timeincuk.net/inspirewp/live/wp-content/uploads/sites/12/2017/05/London-lens-show_banner_new_site.jpg 848w" sizes="(max-width: 300px) 100vw, 300px" /></figure>If you’re free this coming Saturday, the 6th May, and within reach of London why not come and say hello to Amateur Photographer at the London Lens Show and take advantage of an exclusive deal on the day.'},
+ 'tags': [{'label': None, 'scheme': None, 'term': 'Latest news'},
+  {'label': None, 'scheme': None, 'term': 'events'},
+  {'label': None, 'scheme': None, 'term': 'Homepage'},
+  {'label': None, 'scheme': None, 'term': 'lens'},
+  {'label': None, 'scheme': None, 'term': 'london'}],
+ 'title': 'Come and visit AP at the London Lens Show',
+ 'title_detail': {'base': 'http://www.amateurphotographer.co.uk/feed',
+  'language': None,
+  'type': 'text/plain',
+  'value': 'Come and visit AP at the London Lens Show'},
+ 'wfw_commentrss': 'http://www.amateurphotographer.co.uk/latest/photo-news/come-visit-ap-london-lens-show-105195/feed'}
