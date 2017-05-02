@@ -15,7 +15,8 @@ def requires(filename):
     with open(filename, 'r') as pipreq:
         for line in pipreq:
             line = line.strip()
-            if line.startswith('#') or not line:
+            # We don't want empty lines or lines referring to other files
+            if line.startswith('#') or line.startswith('-r') or not line:
                 continue
             modules.append(line)
     return modules
@@ -40,4 +41,7 @@ setup(name='sonnenhut',
                    'Programming Language :: Python :: 3 :: Only',
                    'Topic :: Utilities'
                    ],
+      # For "setup.py test"
+      setup_requires=['pytest-runner'],
+      tests_require=requires('devel_requirements.txt'),
       )
