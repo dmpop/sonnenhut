@@ -7,7 +7,13 @@ from astral import Astral, GoogleGeocoder
 
 
 def getconfig(configfile='sonnenhut.ini'):
-    """
+    """Read INI file or raise FileNotFoundError
+
+    :param str configfile: filename (without path) to the INI file.
+                           Will be searched relative to the sonnenhut lib
+    :return: configuration options
+    :rtype: :class:`configparser.ConfigParser`
+    :raises: FileNotFoundError
     """
     config = configparser.ConfigParser()
     configfiles = config.read(os.path.join(os.path.dirname(__file__), configfile))
