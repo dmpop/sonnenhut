@@ -1,9 +1,12 @@
+import configparser
+import os
+
+import feedparser
+import requests
 from astral import Astral, GoogleGeocoder
-import configparser, feedparser, os, requests
-import json
 
 
-def getconfig(configfile = 'sonnenhut.ini'):
+def getconfig(configfile='sonnenhut.ini'):
     """
     """
     config = configparser.ConfigParser()
@@ -83,9 +86,9 @@ def getdarksky(api_key, location):
     try:
         meteodict['precip'] = '{:.0f}'.format(meteo['daily']['data'][2]['precipProbability']*100)
     except:
-        meteodict['precip']  = '?'
+        meteodict['precip'] = '?'
     return meteodict
-        
+
 
 def fetchrss(config):
     """
@@ -100,9 +103,12 @@ def fetchrss(config):
     html_feed = []
     for post in rss.entries:
         if count <= int(rss_count):
-            item = '<p style="font-family:Lato"><a href="{post.link}">{post.title}</a></p>'.format(post=post)
+            item = ('<p style="font-family:Lato">'
+                    '<a href="{post.link}">{post.title}</a>'
+                    '</p>').format(post=post)
             html_feed.append(item)
             count += 1
-    feed = '<h2 style="font-family:Lato; letter-spacing: 3px">{title}</h2>{feed}'.format(title=rss['feed']['title'],
-                                                                                         feed='\n'.join(html_feed))
+    feed = ('<h2 style="font-family:Lato; letter-spacing: 3px">{title}</h2>'
+            '{feed}').format(title=rss['feed']['title'],
+                             feed='\n'.join(html_feed))
     return feed
