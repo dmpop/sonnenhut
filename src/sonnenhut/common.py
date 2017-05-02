@@ -7,7 +7,13 @@ from astral import Astral, GoogleGeocoder
 
 
 def getconfig(configfile='sonnenhut.ini'):
-    """
+    """Read INI file or raise FileNotFoundError
+
+    :param str configfile: filename (without path) to the INI file.
+                           Will be searched relative to the sonnenhut lib
+    :return: configuration options
+    :rtype: :class:`configparser.ConfigParser`
+    :raises: FileNotFoundError
     """
     config = configparser.ConfigParser()
     configfiles = config.read(os.path.join(os.path.dirname(__file__), configfile))
@@ -56,8 +62,11 @@ def goldenhour(location, direction):
 
 
 def getdarksky(api_key, location):
-    """
-    Get weather data for the given location
+    """Get weather data for the given location
+
+    :param str api_key: the API key from DarkSky
+    :param location: the location
+    :type location: :class:`astral.Location`
     :return: weather data dictionary
     :rtype: dict
     """
