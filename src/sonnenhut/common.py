@@ -82,7 +82,7 @@ def safeget(dct, *keys, default='?'):
     for key in keys:
         try:
             dct = dct[key]
-        except KeyError:
+        except (KeyError, IndexError):
             return default
     return dct
 
