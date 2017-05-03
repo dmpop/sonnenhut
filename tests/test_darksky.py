@@ -41,7 +41,8 @@ def create_mock(mock_get, **kwargs):
 
 @patch('sonnenhut.common.requests.get')
 def test_getdarksky_called(mock_get):
-    mock_loc = create_mock(mock_get, ok=True, status_code=200)
+    mock_loc = create_mock(mock_get, ok=True, status_code=200,
+                           return_value=JSONDATA)
     result = getdarksky(APIKEY, mock_loc)
     assert mock_get.called
 
@@ -57,10 +58,15 @@ def test_getdarksky__when_response_is_not_ok(mock_get):
 def test_getdarksky_check_values(mock_get):
     mock_loc = create_mock(mock_get,
                            ok=True, status_code=200,
-                           return_value = JSONDATA)
+                           return_value=JSONDATA)
     result = getdarksky(APIKEY, mock_loc)
 
-    # We check if we we have the following keys.
-    # If not, we get a KeyError exception:
-    for key in ('today', 'wind_speed', 'precip', 'temp', 'week'):
-        assert result[key]
+    # We check if we we have the following keys and values:
+    for key, value in (('today', 'Light rain starting in the afternoon.'),
+                       ('wind_speed', '5.64'),
+                       ('precip', '59'),
+                       ('temp', '8.70'),
+                       ('week', ('Light rain today through Sunday, '
+                                 'with temperatures rising to 21°C on Saturday.')),
+                       ):
+        assert result[key] == value
