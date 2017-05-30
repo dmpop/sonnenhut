@@ -1,7 +1,7 @@
-#
-
 import os
 import markdown
+import requests
+import sys
 from astral import SUN_RISING, SUN_SETTING
 from bottle import route, run
 from sonnenhut.common import (fetchrss, getapi, getconfig, getdarksky,
@@ -10,8 +10,32 @@ from sonnenhut.common import (fetchrss, getapi, getconfig, getdarksky,
 
 @route('/sonnenhut/<city>')
 def sonnenhut(city):
+
     config = getconfig()
     note_file = config.get('sonnenhut', 'note', fallback='').replace('$HOME', os.environ['HOME'])
+
+    if os.path.isfile(note_file):
+        f = open(note_file, 'r')
+        note = '<style>html * {font-family: Lato !important;}</style>' + \
+            (markdown.markdown(f.read()))
+        f.close()
+    else:
+        f = open(note_file, 'w')
+        f.write('Notes go here. Markdown is supported.')
+        f.close()
+        note = '<p style="font-family:Lato">New sonnenhut.md file has been created.</p>'
+
+    try:
+        response = requests.get("http://unsplash.com")
+    except requests.ConnectionError:
+            return ('<meta name="viewport" content="width=device-width">'
+            '<title>S o n n e n h u t</title>'
+            '<style>@import url("http://fonts.googleapis.com/css?family=Lato");</style>'
+            '<h1 style="font-family:Lato; letter-spacing: 7px; color: #ffcc00">Sonnenhut</h1>'
+            '<h2 style="font-family:Lato; letter-spacing: 3px">Notes</h2>'
+            '{}').format(note)
+            sys.exit()
+
     location = getlocation(city)
     api_key = getapi(config)
 
@@ -36,17 +60,6 @@ def sonnenhut(city):
                                         duration=golden_hour_sunset[1] - golden_hour_sunset[0])
 
     meteo = getdarksky(api_key, location)
-
-    if os.path.isfile(note_file):
-        f = open(note_file, 'r')
-        note = '<style>html * {font-family: Lato !important;}</style>' + \
-            (markdown.markdown(f.read()))
-        f.close()
-    else:
-        f = open(note_file, 'w')
-        f.write('Notes go here. Markdown is supported.')
-        f.close()
-        note = '<p style="font-family:Lato">New sonnenhut.md file has been created.</p>'
     rss_feed = fetchrss(config)
 
     return ('<meta name="viewport" content="width=device-width">'
