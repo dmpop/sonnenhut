@@ -10,7 +10,7 @@ as current weather conditions and golden hour for a specified location.
 The app provides the following information:
 
 -  Geographical coordinates and time zone of the specified city
--  Random Unsplash photo of the specified city
+-  Random Unsplash photo taken in the specified city
 -  Golden hour start and duration
 -  Weather forecast
 -  Current temperature, wind speed, and precipitation probability
@@ -26,7 +26,7 @@ Quick Start
 
      $ pip3 install git+https://github.com/dmpop/sonnenhut.git@develop
 
-#. Modify the ``sonnenhut.ini`` file, if necessary.
+#. Modify the *sonnenhut.ini* file, if necessary.
 
 #. To update Sonnenhut, run the following command::
 
@@ -37,15 +37,15 @@ Installation
 
 #. Install the required packages:
 
-   * On openSUSE, run::
+   * openSUSE::
 
        $ sudo zypper in python3 python3-virtualenv python3-pip
 
-   * On Fedora, run::
+   * Fedora::
 
        $ sudo dnf install python3 python3-virtualenv python3-pip
 
-   * On Debian/Ubuntu, run::
+   * Debian and Ubuntu::
 
        $ sudo apt-get install python3 python3-venv python3-virtualenv python3-pip
 
@@ -80,7 +80,7 @@ Run the ``sonnenhut`` command and point your browser to
 `<http://127.0.0.1:8080/sonnenhut/city>`_ (replace *city* with the actual name of the
 desired city).
 
-Add notes to the ``sonnenhut.md`` text file. You can use Markdown for text formatting.
+Add notes to the *sonnenhut.md* text file. You can use Markdown for text formatting.
 
 Credits
 -------
